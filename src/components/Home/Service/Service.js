@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Service.css'
 import {UserContext} from '../../../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHandPointer } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons'
 
 const Service = ({service}) => {
     const [user, setUser, admin, setAdmin] = useContext(UserContext)
@@ -20,7 +20,7 @@ const Service = ({service}) => {
                 <div className="animationDiv">
                     <h2>{name}</h2>
                     <h6 className="text-center text-white">Click Here</h6>
-                    <div className="animationIcon"><FontAwesomeIcon icon={faHandPointer}/></div>
+                    <div className="animationIcon"><FontAwesomeIcon icon={faAngleDoubleUp}/></div>
                 </div>
             </div>
         </Link>
