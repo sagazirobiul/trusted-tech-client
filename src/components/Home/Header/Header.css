@@ -1,0 +1,30 @@
+.header > .row {
+    --bs-gutter-x: 0!important;
+}
+.header {
+    background: rgba(38, 49, 121, 0.158);
+}
+.titleArea {
+    padding: 1rem;
+}
+.mainTitle {
+    margin-top: 3rem;
+    font-size: 3.5rem;
+}
+.headerTitle{
+    color: #263179;
+    margin: 1.5rem 0;
+}
+.branBtn {
+    background: #263179;
+    color: #fff;
+    font-weight: 500;
+}
+.branBtn:hover {
+    color: #fff;
+    background-color: #3d4b92;
+}
+.img img {
+    padding: 1rem;
+    margin-top: 1.5rem;
+}

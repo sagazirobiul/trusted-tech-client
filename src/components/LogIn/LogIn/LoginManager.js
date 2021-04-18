@@ -6,8 +6,9 @@ if(!firebase.apps.length){
     firebase.initializeApp(firebaseConfig);
 }
 
-const handleToken = (email) => {
+const handleToken = (email, name) => {
     sessionStorage.setItem('email', email)
+    sessionStorage.setItem('name', name)
 }
 
 export const loginWithProvider = (user, provider) => {
@@ -18,7 +19,7 @@ export const loginWithProvider = (user, provider) => {
         newUserInfo.name = displayName;
         newUserInfo.email = email;
         newUserInfo.img = photoURL;
-        handleToken(email)
+        handleToken(email, displayName)
         return newUserInfo;
     }).catch((error) => {
         const newUserInfo = {...user}

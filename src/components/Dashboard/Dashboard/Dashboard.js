@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { UserContext } from '../../../App';
 import AdminDashboard from '../AdminDashboard/AdminDashboard/AdminDashboard';
 import Sidebar from '../Sidebar/Sidebar';
 import UserDashboard from '../UserDashboard/UserDashboard/UserDashboard';
+import './Dashboard.css'
 
 const Dashboard= () => {
+    const [user, setUser, admin, setAdmin] = useContext(UserContext);
+    const email = sessionStorage.getItem('email')
+    useEffect(() => {
+        fetch('https://trusted-tech.herokuapp.com/admin?email='+email)
+        .then(res => res.json())
+        .then(data => setAdmin(data))
+    },[user.email, email, admin, setAdmin])
     return (
-        <div className="row">
-            <div className="col-md-2">
-                <Sidebar/>
-            </div>
-            <div className="col-md-10">
-                <UserDashboard/>
-                <AdminDashboard/>
+        <div className="dashboard">
+            <div className="row w-100">
+                <div className="col-md-2">
+                    <Sidebar/>
+                </div>
+                <div className="col-md-10">
+                    <div className="pageContent">
+                        {
+                            admin ? <AdminDashboard/> : <UserDashboard/>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     );

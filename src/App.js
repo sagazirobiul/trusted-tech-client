@@ -5,10 +5,11 @@ import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Login from './components/LogIn/LogIn/Login';
 import Navbar from './components/Shared/Navbar/Navbar';
 import { createContext, useState } from 'react';
-import Book from './components/Dashboard/UserDashboard/Book/Book';
+import PrivateRoute from './components/LogIn/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 function App() {
+  const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -16,17 +17,12 @@ function App() {
     error: ''
   })
   return (
-    <UserContext.Provider value={[user, setUser]}>
-      <h2>{user.email}</h2>
+    <UserContext.Provider value={[user, setUser, admin, setAdmin]}>
       <Router>
           <Switch>
-            {/* <Route path="/dashboard/book/:id">
-              <Book/>
-            </Route> */}
-            <Route path="/dashboard">
-              <Navbar/>
+            <PrivateRoute path="/dashboard">
               <Dashboard/>
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <Navbar/>
               <Login/>

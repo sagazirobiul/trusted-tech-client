@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Order.css'
 
 const Order = ({order, handleAction}) => {
@@ -8,11 +8,10 @@ const Order = ({order, handleAction}) => {
         background: status === 'Pending' ? '#dc3545' : status === 'On going' ? '#0d6efd' :'#198754'
     }
     return (
-        <tr>
-            <td>{name}</td>
-            <td>{email}</td>
-            <td>{serviceName}</td>
-            <td>
+        <div className="d-flex justify-content-between">
+            <p>{name}</p>
+            <p>{email}</p>
+            <p>{serviceName}</p>
             <div class="dropdown statusBar">
                 <button style={setBackground} className="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {status}
@@ -23,8 +22,7 @@ const Order = ({order, handleAction}) => {
                     <li onClick={() => handleAction(_id, "Done")} className="dropdown-item done">Done</li>
                 </ul>
             </div>
-            </td>
-        </tr>
+        </div>
     );
 };
 

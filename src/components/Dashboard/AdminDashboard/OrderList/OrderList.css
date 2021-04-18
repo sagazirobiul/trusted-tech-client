@@ -1,0 +1,15 @@
+.orderList{
+    background: white;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
+.tableTitle {
+    background: #efefef;
+    border-radius: 0.4rem;
+    padding: 0.2rem 1rem;
+}
+.tableTitle p {
+    margin-bottom: 0;
+    font-weight: 500;
+}

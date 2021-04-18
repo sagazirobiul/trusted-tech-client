@@ -1,0 +1,15 @@
+.ourValue {
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
+.ourValue img {
+    height: 250px;
+    width: 100%;
+}
+.ourValueTitle {
+    text-align: center;
+    color: #263179;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}

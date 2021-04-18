@@ -4,7 +4,7 @@ const ManageServices = () => {
     const [services, setServices] = useState([])
     const [isDeleted, setIsDeleted] = useState(false)
     useEffect(() => {
-        fetch('http://localhost:5050/services')
+        fetch('https://trusted-tech.herokuapp.com/services')
         .then(res => res.json())
         .then(data => {
             setServices(data);
@@ -12,33 +12,31 @@ const ManageServices = () => {
         })
     }, [isDeleted])
     const handleDelete = (id) => {
-        fetch(`http://localhost:5050/delete/${id}`,{
+        fetch(`https://trusted-tech.herokuapp.com/delete/${id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())
         .then(data => setIsDeleted(data))
     }
     return (
-        <div>
-            <h3>manage services</h3>
-            <table className="w-100">
-                <tr>
-                    <th>Service Name</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
+        <div className="orderList">
+            <h5 className="dTitle mb-3">Order List</h5>
+            <div className="d-flex justify-content-between tableTitle">
+                <p>Name</p>
+                <p>Price</p>
+                <p>Action</p>
+            </div>
                 {
                     services.map(({_id, name, price}) => {
                         return(
-                            <tr key={_id}>
-                                <td>{name}</td>
-                                <td>{price}</td>
-                                <td><button onClick={() => handleDelete(_id)}>Delete</button></td>
-                            </tr>
+                            <div className="d-flex justify-content-between mt-2" key={_id}>
+                                <p>{name}</p>
+                                <p>{price}</p>
+                                <button className="btn btn-danger" onClick={() => handleDelete(_id)}>Delete</button>
+                            </div>
                         )
                     })
                 }
-            </table>
         </div>
     );
 };

@@ -1,0 +1,18 @@
+.login{
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    padding: 1rem;
+    border-radius: 0.3rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+.login button {
+    background: #e74c3c;
+    color: #fff;
+    width: 100%;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+}
+.login h3{
+    color: #263179;
+}

@@ -4,7 +4,7 @@ import Review from '../Review/Review';
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5050/reviews')
+        fetch('https://trusted-tech.herokuapp.com/reviews')
         .then(res => res.json())
         .then(data => {
             setReviews(data);
@@ -12,7 +12,7 @@ const Reviews = () => {
     }, [])
     return (
         <div>
-            <h2 className="text-info my-5 pb-4 text-center">TESTIMONIALS</h2>
+            <h4 className="ourValueTitle my-5">TESTIMONIALS</h4>
             <div className="row">
                 {
                     reviews.map(review => <Review key={review._key} review={review}/>)

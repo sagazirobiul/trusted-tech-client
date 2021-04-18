@@ -1,0 +1,33 @@
+.navStyle {
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    background: white;
+}
+.mainLogo,
+.navItems .selected {
+    color: #132ac4!important;
+}
+.navBrand {
+    color: #000!important;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none!important;
+}
+.navItems a {
+    color: rgba(0, 0, 0, 0.63)!important;
+    font-weight: 500!important
+}
+.navItems a:hover {
+    color: #000!important;
+}
+.logOutBtn{
+    background-color: #263179;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 0.2rem;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    margin: 0.1rem 0 0 0.2rem;
+}
+.logOutBtn:hover{
+    background-color: #3d4b92;
+}

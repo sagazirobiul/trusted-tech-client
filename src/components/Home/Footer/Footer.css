@@ -1,0 +1,12 @@
+.footer {
+    background: #132bc4e0;
+}
+.linkIcon {
+    color: #132ac4;
+    font-size: 2rem;
+    cursor: pointer;
+    background: white;
+    padding: 5px;
+    margin: 0 0.5rem;
+    border-radius: 0.3rem;
+}

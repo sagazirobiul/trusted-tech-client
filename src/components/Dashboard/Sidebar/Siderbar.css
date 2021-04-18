@@ -1,0 +1,37 @@
+.sideBar{
+    height: 100%;
+}
+.sideBar li {
+    list-style: none;
+    margin-left: 1rem;
+    padding: 0.2rem 0;
+}
+.sideBar a {
+    text-decoration: none;
+    padding: 0.2rem 0;
+    color: #263179;
+}
+.sideBar a:hover {
+    color: black;
+}
+.activePage{
+    background: #263179;
+    color: white!important;
+    display: block;
+    border-radius: 0.2rem;
+    padding: 0 0.3rem;
+}
+.activePage:hover{
+    background: #263179;
+    color: white!important;
+    display: block;
+}
+.iconC {
+    margin-left: 5px;
+}
+.dashTitle a {
+    border: 2px solid #263179;
+    display: block;
+    border-radius: 0.3rem;
+    font-size: 1.3rem;
+}

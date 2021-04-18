@@ -24,7 +24,7 @@ const CheckoutForm = ({handleOrder, setMessage}) => {
   return (
     <form onSubmit={handleSubmit}>
       <CardElement />
-      <button type="submit" disabled={!stripe}>Pay</button>
+      <button className="btn branBtn px-5 py-2 mt-3" type="submit" disabled={!stripe}>Pay</button>
     </form>
   );
 };
