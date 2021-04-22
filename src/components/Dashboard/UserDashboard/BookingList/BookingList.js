@@ -8,7 +8,7 @@ const BookingList = () => {
     const email = sessionStorage.getItem('email')
     const [bookings, setBookings] = useState([])
     useEffect(() => {
-        fetch('https://trusted-tech.herokuapp.com/bookingList?email='+user.email || email)
+        fetch('https://trusted-tech.herokuapp.com/bookingList?email='+user.email ||+email)
         .then(res => res.json())
         .then(data => setBookings(data))
     },[user.email, email])

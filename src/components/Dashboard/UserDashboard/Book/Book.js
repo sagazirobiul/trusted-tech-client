@@ -25,8 +25,8 @@ const Book = () => {
     const stripePromise = loadStripe('pk_test_51IeH1tCIW0BkrTRE8d8afxDs1DeFYm5stqp4qvLPKUpAUCNdfkEn1q1MOwS6ZLdgpNJNDfjIPs0aF29kZ2yeqTok00HDaxItJY');
     const handleOrder = (paymentId) => {
         const orderData = {
-            name: user.name,
-            email: user.email,
+            name: userName,
+            email: userEmail,
             serviceName: name,
             price: price,
             status: 'Pending',
