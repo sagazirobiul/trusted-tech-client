@@ -2,10 +2,10 @@
 ### [Live Site](https://trusted-tech.firebaseapp.com/)
 
 # Features 
-- Add Service
-- Add Review
-- Order details for specific user
-- Delete Service
+- Complete E-commerce web application with a dynamic service section and review section.
+- Users can check their orders and see the status in their dashboard.
+- Admin panel is available & admin can see orders and change status.
+- Firebase Authentication & hosting, Stripe payment gateway are also included 
 
 # Key Technology
 - React 
