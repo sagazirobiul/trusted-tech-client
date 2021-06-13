@@ -9,21 +9,16 @@ const Service = ({service}) => {
     const [user, setUser, admin, setAdmin] = useContext(UserContext)
     const {_id, name, price, description, img} = service;
     return (<div className="col-md-4">
-        <Link className="serviceLink" to={admin ? `/dashboard` : `/dashboard/book/${_id}`}>
             <div className="service">
                 <div className="text-center">
                     <img src={`${img}`} alt=""/>
                 </div>
-                <h5 className="ourValueTitle">{name}</h5>
-                <h6 className="ourValueTitle">${price}</h6>
+                <h4 className="serviceName">{name}</h4>
                 <p>{description}</p>
-                <div className="animationDiv">
-                    <h2>{name}</h2>
-                    <h6 className="text-center text-white">Click Here</h6>
-                    <div className="animationIcon"><FontAwesomeIcon icon={faAngleDoubleUp}/></div>
-                </div>
+                <Link className="serviceLink" to={admin ? `/dashboard` : `/dashboard/book/${_id}`}>
+                    <button>ok</button>
+                </Link>
             </div>
-        </Link>
     </div>);
 };
 

@@ -9,7 +9,7 @@ const Dashboard= () => {
     const [user, setUser, admin, setAdmin] = useContext(UserContext);
     const email = sessionStorage.getItem('email')
     useEffect(() => {
-        fetch('https://trusted-tech.herokuapp.com/admin?email='+user.email ||+email)
+        fetch('http://localhost:5050/admin?email='+user.email ||+email)
         .then(res => res.json())
         .then(data => setAdmin(data))
     },[user.email, email, admin, setAdmin])

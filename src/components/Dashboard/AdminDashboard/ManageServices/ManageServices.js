@@ -4,7 +4,7 @@ const ManageServices = () => {
     const [services, setServices] = useState([])
     const [isDeleted, setIsDeleted] = useState(false)
     useEffect(() => {
-        fetch('https://trusted-tech.herokuapp.com/services')
+        fetch('http://localhost:5050/services')
         .then(res => res.json())
         .then(data => {
             setServices(data);
@@ -12,7 +12,7 @@ const ManageServices = () => {
         })
     }, [isDeleted])
     const handleDelete = (id) => {
-        fetch(`https://trusted-tech.herokuapp.com/delete/${id}`,{
+        fetch(`http://localhost:5050/delete/${id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

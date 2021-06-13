@@ -10,3 +10,17 @@
     margin: 0 0.5rem;
     border-radius: 0.3rem;
 }
+.footerLink {
+    padding: 1rem 2rem;
+}
+.footerLink h5 {
+    color: rgba(240, 255, 255, 0.925);
+}
+.footerLink li {
+    list-style: none;
+}
+.footerLink a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}

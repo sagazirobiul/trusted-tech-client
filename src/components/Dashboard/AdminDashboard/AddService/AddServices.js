@@ -14,7 +14,7 @@ const AddService = () => {
             description: data.description,
             img: imgURL
         }
-        fetch('https://trusted-tech.herokuapp.com/addService',{
+        fetch('http://localhost:5050/addService',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(serviceInfo)

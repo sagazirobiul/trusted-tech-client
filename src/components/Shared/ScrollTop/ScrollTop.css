@@ -1,0 +1,17 @@
+.scrollBtn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    font-weight: 400;
+    color: #fff;
+    z-index: 112;
+    padding: 0.2rem 0.5rem;
+    background: black;
+    border-radius: 0.2rem;
+    transition: 0.3s;
+    border: none;
+}
+.scrollBtn:hover {
+    background-color: #263179;
+}

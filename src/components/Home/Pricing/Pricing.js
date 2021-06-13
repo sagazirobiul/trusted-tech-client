@@ -1,0 +1,55 @@
+import { Col, Container, Nav, Row, Tab } from 'react-bootstrap';
+import React from 'react';
+import PricingCard from './PricingCard';
+import './Pricing.css'
+import { PricingData } from '../../../Data/PricingData';
+import sPic1 from '../../../image/s1.png'
+import sPic2 from '../../../image/s2.png'
+import sPic3 from '../../../image/s3.png'
+import sPic4 from '../../../image/s4.png'
+import sPic5 from '../../../image/s5.png'
+import sPic6 from '../../../image/s6.png'
+
+const Pricing = () => {
+    return (
+        <div className="pricing">
+            <h4 className="miniTitle text-center">Pricing</h4>
+            <h2>CHOOSE PLAN</h2>
+            <Container>
+                <Tab.Container defaultActiveKey="1"> 
+                    <Row>
+                        <Col md={10} className="mx-auto">
+                            <Nav className="pricingNav">
+                                <Nav.Item className="priceLink1">
+                                    <Nav.Link eventKey="1"><img src={`${sPic1}`} alt="" /></Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="priceLink2">
+                                    <Nav.Link eventKey="2"><img src={`${sPic2}`} alt="" /></Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="priceLink3">
+                                    <Nav.Link eventKey="3"><img src={`${sPic3}`} alt="" /></Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="priceLink4">
+                                    <Nav.Link eventKey="4"><img src={`${sPic4}`} alt="" /></Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="priceLink5">
+                                    <Nav.Link eventKey="5"><img src={`${sPic5}`} alt="" /></Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="priceLink6">
+                                    <Nav.Link eventKey="6"><img src={`${sPic6}`} alt="" /></Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+                       </Col>
+                        <Tab.Content>
+                        {
+                            PricingData.map((data, index) => <PricingCard id={index} data={data} key={index}/>)
+                        }
+                        </Tab.Content>
+                    </Row>
+                </Tab.Container>
+            </Container>
+        </div>
+    );
+};
+
+export default Pricing;

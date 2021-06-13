@@ -6,13 +6,13 @@ const OrderList = () => {
     const [orders, setOrders] = useState([])
     const [isUpdated, setIsUpdated] = useState(false)
     useEffect(() => {
-        fetch('https://trusted-tech.herokuapp.com/orders')
+        fetch('http://localhost:5050/orders')
         .then(res => res.json())
         .then(data => setOrders(data))
     },[isUpdated])
     const handleAction = (id, status) => {
         setIsUpdated(true)
-        fetch(`https://trusted-tech.herokuapp.com/statusUpdate/${id}`, {
+        fetch(`http://localhost:5050/statusUpdate/${id}`, {
             method: "PATCH",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({status: status })

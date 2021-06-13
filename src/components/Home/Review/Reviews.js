@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Review from '../Review/Review';
+import Review from './Review';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('https://trusted-tech.herokuapp.com/reviews')
+        fetch('http://localhost:5050/reviews')
         .then(res => res.json())
         .then(data => {
             setReviews(data);
@@ -12,8 +12,8 @@ const Reviews = () => {
     }, [])
     return (
         <div>
-            <h4 className="ourValueTitle my-5">TESTIMONIALS</h4>
-            <div className="row">
+            <h4 className="my-5">TESTIMONIALS</h4>
+            <div className="row w-100">
                 {
                     reviews.map(review => <Review key={review._key} review={review}/>)
                 }

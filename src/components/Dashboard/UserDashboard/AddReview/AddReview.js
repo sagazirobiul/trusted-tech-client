@@ -12,7 +12,7 @@ const AddReview = () => {
             description: data.description,
             img: user.img,
         }
-        fetch('https://trusted-tech.herokuapp.com/addReview',{
+        fetch('http://localhost:5050/addReview',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(review)

@@ -15,7 +15,7 @@ const Book = () => {
     const [message, setMessage] = useState({})
     const [service, setService] = useState({})
     useEffect(() => {
-        fetch(`https://trusted-tech.herokuapp.com/services/${id}`)
+        fetch(`http://localhost:5050/services/${id}`)
         .then(res => res.json())
         .then(data => {
             setService(data);
@@ -35,7 +35,7 @@ const Book = () => {
             img:img,
             time: new Date()
         }
-        fetch('https://trusted-tech.herokuapp.com/addOrder', {
+        fetch('http://localhost:5050/addOrder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(orderData)
