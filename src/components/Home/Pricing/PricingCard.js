@@ -1,5 +1,7 @@
 import React from 'react';
 import { Col, Row, Tab } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
 const PricingCard = ({data, id}) => {
     return (
@@ -16,9 +18,14 @@ const PricingCard = ({data, id}) => {
                                         <h5>{name}</h5>
                                         <p className="planDescription">Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem.</p>
                                     </div>
-                                    <li>Business Analysis.</li>
-                                    <li>Business Analysis.</li>
-                                    <li>Business Analysis.</li>
+                                    <li>
+                                       <span className="checkIcon"><FontAwesomeIcon icon={faCheckCircle}/></span> UI/UX Design.</li>
+                                    <li>
+                                       <span className="checkIcon"><FontAwesomeIcon icon={faCheckCircle}/></span> Related statistics.
+                                    </li>
+                                    <li>
+                                       <span className="checkIcon"><FontAwesomeIcon icon={faCheckCircle}/></span> Business Analysis.
+                                    </li>
                                 </div>
                             </Col>
                         )

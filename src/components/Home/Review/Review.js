@@ -9,24 +9,22 @@ const Review = ({review}) => {
     const [user, setUser] = useContext(UserContext)
     const {name, companyName, description, img} = review;
     return (
-        <div className="col-md-4">
-            <div className="review">
-                <div className="d-flex">
-                    { img ? <img src={img} alt=""/>:
-                    <img src={`${userImg}`} alt=""/>}
-                    <div>
-                        <h6>{name}</h6>
-                        <p>{companyName}</p>
-                    </div>
+        <div className="review">
+            <div className="d-flex">
+                { img ? <img src={img} alt=""/>:
+                <img src={`${userImg}`} alt=""/>}
+                <div>
+                    <h6>{name}</h6>
+                    <p>{companyName}</p>
                 </div>
-                <p>{description}</p>
-                <div className="rate">
-                    <FontAwesomeIcon icon={faStar}/>
-                    <FontAwesomeIcon icon={faStar}/>
-                    <FontAwesomeIcon icon={faStar}/>
-                    <FontAwesomeIcon icon={faStar}/>
-                    <FontAwesomeIcon icon={faStar}/>
-                </div>
+            </div>
+            <p>{description}</p>
+            <div className="rate">
+                <FontAwesomeIcon icon={faStar}/>
+                <FontAwesomeIcon icon={faStar}/>
+                <FontAwesomeIcon icon={faStar}/>
+                <FontAwesomeIcon icon={faStar}/>
+                <FontAwesomeIcon icon={faStar}/>
             </div>
         </div>
     );

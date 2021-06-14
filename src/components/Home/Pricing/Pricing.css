@@ -79,20 +79,31 @@
 
 .pricingBox {
     text-align: center;
-    border-bottom: 1px solid rgb(184, 184, 184);
-    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(119, 119, 119, 0.322);
+    margin-bottom: 0.8rem;
 }
 
 .pricingBox h4 {
     font-weight: 700;
     padding: 0.5 0;
+    margin-bottom: 0;
 }
+.pricingBox h5 {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
 .pricingBox .pricePlan {
-    font-weight: 500;
+    font-weight: 600;
+    margin: 0.6rem 0;
 }
-.planDescription {
+
+.planDescription{
     font-size: 15px;
-    color: #666;
+    color: #777;
+}
+.pricingCard li {
+    list-style: none;
 }
 .ph1, 
 .ph2, 
@@ -101,16 +112,52 @@
 .ph5,
 .ph6 {
     font-size: 1.6rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 .pricingCard1 {
     background: #FCDED4;
 }
 .ph1, 
-.pricingCard1 > li {
+.pricingCard1 > li > .checkIcon {
     color: #FF4F66;
 }
 
 .pricingCard2 {
-    background: yellow;
+    background: #d3ffe9;
+}
+.ph2, 
+.pricingCard2 > li > .checkIcon {
+    color: #51D899;
+}
+
+.pricingCard3 {
+    background: #fde7ff;
+}
+.ph3, 
+.pricingCard3 > li > .checkIcon {
+    color: #F78DFF;
+}
+
+.pricingCard4 {
+    background: #cfe3ff;
+}
+.ph4, 
+.pricingCard4 > li > .checkIcon {
+    color: #0B76FC;
+}
+
+.pricingCard5 {
+    background: #e2def9;
+}
+.ph5, 
+.pricingCard5 > li > .checkIcon {
+    color: #755BFF;
+}
+
+.pricingCard6 {
+    background: #FCEFD6;
+}
+.ph6, 
+.pricingCard6 > li > .checkIcon {
+    color: #FFD30F;
 }

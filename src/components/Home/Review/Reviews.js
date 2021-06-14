@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Review from './Review';
+import { Col } from 'react-bootstrap';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
@@ -11,14 +11,20 @@ const Reviews = () => {
         })
     }, [])
     return (
-        <div>
+        <section>
             <h4 className="my-5">TESTIMONIALS</h4>
-            <div className="row w-100">
-                {
-                    reviews.map(review => <Review key={review._key} review={review}/>)
-                }
-            </div>
-        </div>
+            <Col md={11} className="mx-auto">
+                    {/* {
+                        reviews.map(review => {
+                            return(
+                                <SwiperSlide key={review._key}>
+                                    <Review review={review}/>
+                                </SwiperSlide>
+                            )
+                        })
+                    } */}
+            </Col>
+        </section>
     );
 };
 
