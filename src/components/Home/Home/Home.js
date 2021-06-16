@@ -1,6 +1,7 @@
 import React from 'react';
 import ScrollTop from '../../Shared/ScrollTop/ScrollTop';
 import About from '../About/About';
+import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import OurValue from '../OurValue/OurValue';
@@ -17,6 +18,7 @@ const Home = () => {
             <OurValue/>
             <Pricing/>
             <Reviews/>
+            <Contact/>
             <Footer/>
             <ScrollTop/>
         </main>

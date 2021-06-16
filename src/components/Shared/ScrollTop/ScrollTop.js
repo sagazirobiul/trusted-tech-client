@@ -4,6 +4,9 @@ import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react';
 import './ScrollTop.css'
 
+export const scrollUP = () => {
+    window['scrollTo']({top: 0, behavior: 'smooth'})
+}
 const ScrollTop = () => {
     const [isTrue, setIsTrue] = useState(false)
     useEffect(() => {
@@ -15,9 +18,6 @@ const ScrollTop = () => {
             }
         })
     }, [isTrue])
-    const scrollUP = () => {
-        window['scrollTo']({top: 0, behavior: 'smooth'})
-    }
     return (
         <div>
             {

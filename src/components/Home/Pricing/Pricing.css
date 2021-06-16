@@ -115,7 +115,7 @@
     font-weight: 700;
 }
 .pricingCard1 {
-    background: #FCDED4;
+    background: #ffe3da;
 }
 .ph1, 
 .pricingCard1 > li > .checkIcon {
@@ -123,19 +123,19 @@
 }
 
 .pricingCard2 {
-    background: #d3ffe9;
+    background: #e1fff0;
 }
 .ph2, 
 .pricingCard2 > li > .checkIcon {
-    color: #51D899;
+    color: #11d87b;
 }
 
 .pricingCard3 {
-    background: #fde7ff;
+    background: #fce1ff;
 }
 .ph3, 
 .pricingCard3 > li > .checkIcon {
-    color: #F78DFF;
+    color: #f565ff;
 }
 
 .pricingCard4 {
@@ -155,9 +155,9 @@
 }
 
 .pricingCard6 {
-    background: #FCEFD6;
+    background: #fff5e1;
 }
 .ph6, 
 .pricingCard6 > li > .checkIcon {
-    color: #FFD30F;
+    color: #f5c800;
 }

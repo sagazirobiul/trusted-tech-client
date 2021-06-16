@@ -1,48 +1,48 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faInstagram, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import FooterCol from './FooterCol';
-import './Footer.css'
+import './Footer.css';
+import { usefulLink, ourServices, otherLinks, footerInfo } from '../../../Data/FooterData';
+import FooterInfo from './FooterInfo';
+import { Link } from 'react-router-dom';
+import { scrollUP } from '../../Shared/ScrollTop/ScrollTop';
 
 const Footer = () => {
-    const usefulLink = [
-        {name: 'Home', id: 1},
-        {name: 'About us', id: 2},
-        {name: 'Service', id: 3},
-        {name: 'Terms of service', id: 4},
-        {name: 'Privacy policy', id: 5}
-    ]
-    const ourServices = [
-        {name: 'Web Design', id: 6},
-        {name: 'About us', id: 7},
-        {name: 'Web Development', id: 8},
-        {name: 'Product Management', id: 9},
-        {name: 'Graphic Design', id: 10}
-    ]
-    const contactUs = [
-        {name: 'A107 Limai Street', id: 11},
-        {name: 'Bnani, Dhaka', id: 12},
-        {name: 'Bangladesh', id: 13},
-    ]
-    const socialLink = [
-        {name: 'Connect With us', id: 16}
-    ]
     return (
-        <div class='row footer w-100 mt-5 pt-5'>
-            <div className="row col-md-11 mx-auto">
-                <FooterCol key="1" menuItems={usefulLink} title="USEFUL LINK"/>
-                <FooterCol key="2" menuItems={ourServices} title="OUR SERVICES"/>
-                <FooterCol key="3" menuItems={contactUs} title="CONTACT US"/>
-                <FooterCol key="4" menuItems={socialLink} title="SOCIAL LINK">
-                    <p className="text-white fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, voluptate quod facere quas rem quaerat.</p>
-                    <div className="d-flex">
-                        <FontAwesomeIcon icon={faFacebook} className="linkIcon"/>
-                        <FontAwesomeIcon icon={faGoogle} className="linkIcon"/>
-                        <FontAwesomeIcon icon={faTwitter} className="linkIcon"/>
-                    </div>
-                </FooterCol>
-            </div>
-        </div>
+        <section class='row footer w-100'>
+            <Row className="col-md-11 mx-auto">
+                <Row className="align-items-center footerInfo">
+                    {
+                        footerInfo.map(data => <FooterInfo data={data} key={data.id}/>)
+                    }
+                </Row>
+                <Col md={3} className="fAboutUs">
+                    <h5>ABOUT US</h5>
+                    <span className="animate-border"></span>
+                    <p className="aboutUsDes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, voluptate quod facere quas rem quaerat.</p>
+                    <ul className="socialIcons">
+                        <li>
+                            <Link onClick={scrollUP} to="/" ><FontAwesomeIcon icon={faFacebook}/></Link>
+                        </li>
+                        <li>
+                            <Link onClick={scrollUP} to="/"><FontAwesomeIcon icon={faTwitter}/></Link>
+                        </li>
+                        <li>
+                            <Link onClick={scrollUP} to="/"><FontAwesomeIcon icon={faInstagram}/></Link>
+                        </li>
+                        <li>
+                            <Link onClick={scrollUP} to="/"><FontAwesomeIcon icon={faLinkedinIn}/></Link>
+                        </li>
+                    </ul>
+                </Col>
+                <FooterCol key="2" menuItems={usefulLink} title="USEFUL LINK"/>
+                <FooterCol key="3" menuItems={ourServices} title="OUR SERVICES"/>
+                <FooterCol key="4" menuItems={otherLinks} title="OTHER LINKS"/>
+            </Row>
+            <p className="copyRight">Copyright &copy; 2021 <span className="fHighlight">Trusted Tech</span>. All rights reserved.</p>
+        </section>
     );
 };
 

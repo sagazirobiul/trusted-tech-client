@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { scrollUP } from '../../Shared/ScrollTop/ScrollTop';
 
 const FooterCol = (props) => {
     return (
-        <div className="col-md-3 footerLink">
+        <Col md={3} className="footerLink">
             <h5>{props.title? props.title : ''}</h5>
             {
-                props.menuItems.map(({name, id}) => <li><Link to="/" key={id}>{name}</Link></li>)
+                props.menuItems?.map(({name, id}) => <Link to="/" onClick={scrollUP} key={id}><li><FontAwesomeIcon icon={faAngleDoubleRight} className="footArrowIcon"/> {name}</li></Link>)
             }
             {props.children && props.children}
-        </div>
+        </Col>
     );
 };
 

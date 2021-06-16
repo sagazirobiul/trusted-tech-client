@@ -1,31 +1,16 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../../../App';
-import userImg from '../../../image/user.png'
+import React from 'react';
+import userImg from '../../../image/user.svg'
 import './Review.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const Review = ({review}) => {
-    const [user, setUser] = useContext(UserContext)
     const {name, companyName, description, img} = review;
     return (
         <div className="review">
-            <div className="d-flex">
-                { img ? <img src={img} alt=""/>:
-                <img src={`${userImg}`} alt=""/>}
-                <div>
-                    <h6>{name}</h6>
-                    <p>{companyName}</p>
-                </div>
-            </div>
+            { img ? <img src={img} alt=""/>:
+            <img src={`${userImg}`} alt=""/>}
+            <h5 className="testimonialName">{name}</h5>
+            <h6 className="testimonialAddress">{companyName}</h6>
             <p>{description}</p>
-            <div className="rate">
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-                <FontAwesomeIcon icon={faStar}/>
-            </div>
         </div>
     );
 };
