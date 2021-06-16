@@ -11,7 +11,7 @@ import { scrollUP } from '../../Shared/ScrollTop/ScrollTop';
 
 const Footer = () => {
     return (
-        <section class='row footer w-100'>
+        <section class='row footer'>
             <Row className="col-md-11 mx-auto">
                 <Row className="align-items-center footerInfo">
                     {
