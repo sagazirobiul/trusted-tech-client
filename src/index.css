@@ -13,13 +13,13 @@ code {
     monospace;
 }
 body::-webkit-scrollbar {
-  width: 10px;
+  width: 9px;
   background-color: #dfdfdf;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #afafaf;
+  background-color: #b9b9b9;
   border-radius: 10px;
 }
 body::-webkit-scrollbar-thumb:hover{
-  background-color: #868686;
+  background-color: #969696;
 }

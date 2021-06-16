@@ -11,13 +11,13 @@ const Contact = () => {
         swal("Thank You!", "We appreciate you contacting us!", "success");
     }
     return (
-        <section>
-            <h4 className="miniTitle text-center">CONTACT US</h4>
-            <h5>GET IN TOUCH</h5>
+        <section id="contact">
             <Col md={11} className="mx-auto">
                 <Row>
                     <Col md={6}>
                         <form onSubmit={handleSubmit} className="contactForm">
+                            <h4 className="miniTitle">CONTACT US</h4>
+                            <h5 className="sectionTitle">GET IN TOUCH</h5>
                             <Row>
                                 <Col md={6}>
                                     <input placeholder="Your Name" type="text" required/>

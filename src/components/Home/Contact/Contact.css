@@ -1,5 +1,12 @@
+#contact {
+    padding: 3rem 0;
+}
+.sectionTitle {
+    margin: 0.5rem 0 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
 .contactForm {
-    margin-top: 2.5rem;
     padding: 1rem;
 }
 .contactForm input,
