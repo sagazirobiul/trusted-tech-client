@@ -12,9 +12,11 @@ import sPic6 from '../../../image/s6.png'
 
 const Pricing = () => {
     return (
-        <div className="pricing">
+        <section className="pricing">
             <h4 className="miniTitle text-center">Pricing</h4>
-            <h2>CHOOSE PLAN</h2>
+            <div className="text-center">
+                <h2 className="sectionTitle">CHOOSE PLAN</h2>
+            </div>
             <Container>
                 <Tab.Container defaultActiveKey="1"> 
                     <Row>
@@ -48,7 +50,7 @@ const Pricing = () => {
                     </Row>
                 </Tab.Container>
             </Container>
-        </div>
+        </section>
     );
 };
 

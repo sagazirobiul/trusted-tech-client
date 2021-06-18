@@ -1,11 +1,26 @@
 #contact {
-    padding: 3rem 0;
+    padding: 7rem 0 6rem;
+    overflow: hidden;
 }
 .sectionTitle {
-    margin: 0.5rem 0 2rem;
+    margin: 0.5rem 0 3rem;
     font-size: 2rem;
     font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.6rem;
 }
+.sectionTitle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100px;
+    border-radius: 70px;
+    height: 4px;
+    background: #7355F7;
+}
+
 .contactForm {
     padding: 1rem;
 }

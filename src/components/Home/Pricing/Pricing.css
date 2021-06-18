@@ -1,3 +1,6 @@
+.pricing{
+    padding: 7rem 0 6rem;
+}
 .pricingNav {
     display: flex;
     justify-content: space-between;
@@ -101,6 +104,7 @@
 .planDescription{
     font-size: 15px;
     color: #777;
+    line-height: 1.8;
 }
 .pricingCard li {
     list-style: none;

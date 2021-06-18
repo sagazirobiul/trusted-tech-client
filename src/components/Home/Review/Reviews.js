@@ -17,8 +17,11 @@ const Reviews = () => {
         })
     }, [])
     return (
-        <section>
-            <h4 className="my-5">TESTIMONIALS</h4>
+        <section id="testimonial">
+            <h4 className="miniTitle text-center">TESTIMONIALS</h4>
+            <div className="text-center mb-4">
+                <h3 className="sectionTitle">WHAT OUR CLIENTS SAY’S</h3>
+            </div>
             <Col md={11} className="mx-auto">
                 <Swiper 
                     pagination={{ clickable: true }}

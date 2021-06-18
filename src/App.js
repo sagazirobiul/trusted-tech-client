@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './components/Home/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Login from './components/LogIn/LogIn/Login';
-import Navbar from './components/Shared/Navbar/Navbar';
+import NavBar from './components/Shared/NavBar/NavBar';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/LogIn/PrivateRoute/PrivateRoute';
 
@@ -24,7 +24,7 @@ function App() {
               <Dashboard/>
             </PrivateRoute>
             <Route path="/login">
-              <Navbar/>
+              <NavBar/>
               <Login/>
             </Route>
             <Route exact path="/">

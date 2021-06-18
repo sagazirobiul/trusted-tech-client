@@ -2,24 +2,30 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Service.css'
 import {UserContext} from '../../../App'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons'
+import Fade from 'react-reveal/Fade';
 
 const Service = ({service}) => {
-    const [user, setUser, admin, setAdmin] = useContext(UserContext)
+    const [, , admin] = useContext(UserContext)
     const {_id, name, price, description, img} = service;
-    return (<div className="col-md-4">
-            <div className="service">
-                <div className="text-center">
-                    <img src={`${img}`} alt=""/>
+    return (
+        <div className="col-md-4 service">
+            <Fade bottom duration={2700} distance='70px'>
+                <div className="service-card">
+                    <div className="text-center">
+                        <img src={`${img}`} alt="" className="img-fluid serviceImg"/>
+                    </div>
+                    <h4 className="serviceName">{name}</h4>
+                    <p className="serviceDes">{description}</p>
+                    <div className="bookingBox">
+                        <p className="servicePrice">${price}</p>
+                        <Link className="serviceLink" to={admin ? `/dashboard` : `/dashboard/book/${_id}`}>
+                            <button className="bookingBtn">Book Now</button>
+                        </Link>
+                    </div>
                 </div>
-                <h4 className="serviceName">{name}</h4>
-                <p>{description}</p>
-                <Link className="serviceLink" to={admin ? `/dashboard` : `/dashboard/book/${_id}`}>
-                    <button>ok</button>
-                </Link>
-            </div>
-    </div>);
+            </Fade>
+        </div>
+    );
 };
 
 export default Service;

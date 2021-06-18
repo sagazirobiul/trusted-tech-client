@@ -1,6 +1,6 @@
 .ourValue {
-    background: #7154F3;
-    height: 200px;
+    background: #7355F7;
+    padding: 2rem;
 }
 .ourValueDetails {
     background-color: #fff;
@@ -8,7 +8,6 @@
     box-shadow: 0 0px 60px 0 rgb(0 0 0 / 10%);
     padding: 1.3rem 1rem 1rem;
     transition: all 1s;
-    margin-top: 30px;
     text-align: center;
 }
 .valueIcon {
