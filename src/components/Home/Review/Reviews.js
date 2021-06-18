@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Autoplay, Pagination } from 'swiper/core'
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Reviews = () => {
     SwiperCore.use([Pagination, Autoplay]);
@@ -46,13 +47,18 @@ const Reviews = () => {
                     }}
                     spaceBetween={10}
                     >
+                    
                     {
-                        reviews.map(review => {
-                            return(
-                                <SwiperSlide>
-                                    <Review review={review} key={review._key}/>
-                                </SwiperSlide>
-                            )
+                        reviews.length === 0 ? 
+                            <div className="text-center">
+                                <Spinner/>
+                            </div>: 
+                            reviews.map(review => {
+                                return(
+                                    <SwiperSlide>
+                                        <Review review={review} key={review._key}/>
+                                    </SwiperSlide>
+                                )
                         })
                     }
                 </Swiper>

@@ -6,7 +6,9 @@
     font-weight: 400;
     color: #fff;
     z-index: 112;
-    padding: 0.3rem 0.7rem;
+    display: inline-block;
+    height: 2.4rem;
+    width: 2.4rem;
     background: #7154F3;
     border-radius: 50%;
     transition: 0.3s;

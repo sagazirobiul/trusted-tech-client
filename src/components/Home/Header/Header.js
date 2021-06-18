@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade';
 
 const Header = () => {
     return (
-        <div className="header">
+        <section className="header">
             <NavBar/>
             <div className="row w-100">
                 <div className="row col-md-11 mx-auto ">
@@ -15,7 +15,7 @@ const Header = () => {
                             <p className="miniTitle">WE CREATE IDEAS</p>
                             <h1 className="headerTitle">HOW WE CAN HELP YOUR <span className="headerHighlight">BUSINESS</span></h1>
                             <p className="headerContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
-                            <button className="branBtn">Get Started</button>
+                            <a href="#services"><button className="branBtn">Get Started</button></a>
                         </Fade>
                     </div>
                     <Fade duration={2000} right>
@@ -25,7 +25,7 @@ const Header = () => {
                     </Fade>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

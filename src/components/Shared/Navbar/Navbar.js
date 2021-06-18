@@ -7,6 +7,7 @@ import { faBuffer } from '@fortawesome/free-brands-svg-icons'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Button, Col, Container, Nav, Navbar } from 'react-bootstrap';
+import PopOver from '../PopOver/PopOver';
 
 const NavBar = () => {
     const [user, setUser] = useContext(UserContext)
@@ -53,8 +54,8 @@ const NavBar = () => {
                                 <Nav.Link as={Link} to="/dashboard" className="nav-link">Dashboard</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                {user.email || email ? <button className="logOutBtn" onClick={handleLogOut}>Log out</button>:
-                                <Button as={Link} to="/login" className="loginBtn">Login</Button>}
+                                {user.email || email ? <PopOver/> :
+                                <Link to="/login"><button className="loginBtn">Login</button></Link>}
                             </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>

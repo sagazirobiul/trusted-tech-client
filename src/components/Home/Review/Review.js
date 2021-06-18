@@ -12,7 +12,7 @@ const Review = ({review}) => {
                 <img src={`${userImg}`} alt=""/>}
                 <h5 className="testimonialName">{name}</h5>
                 <h6 className="testimonialAddress">{companyName}</h6>
-                <p>{description}</p>
+                <p><i>{description}</i></p>
             </div>
         </Fade>
     );

@@ -1,21 +1,38 @@
 .navStyle {
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
     background: white;
-    position: fixed;
+    position: fixed!important;
     width: 100%;
-    z-index: 99;
-    transition: 0.5s;
+    z-index: 99!important;
+    transition: 0.5s!important;
+    font-family: sans-serif;
 }
 .navDefault {
-    transition: 0.5s;
-    padding: 25px 0 40px 0;
+    transition: 0.5s!important;
+    padding: 25px 0 40px 0!important;
     margin-bottom: 2rem;
 }
 
 .mainNav .nav-link {
     color: #070120!important;
-    padding: 0.5rem 1.4rem!important;
+    margin: 0.5rem 1.2rem!important;
     font-weight: 500!important;
+    transition: 0.3s;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+}
+.mainNav .nav-link:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+.mainNav .nav-link:hover:after {
+    width: 100%;
+    background: #4C25F5;
 }
 
 .navBrn {
@@ -24,25 +41,13 @@
 }
 .brnIcon,
 .navHighlight {
-    color: #7355F7;;
+    color: #7456F7;;
 }
 .brnIcon {
     font-weight: 800;
     font-size: 1.6rem
 }
 
-.logOutBtn{
-    background-color: #263179;
-    color: #fff;
-    font-weight: 500;
-    border-radius: 0.2rem;
-    border: none;
-    padding: 0.4rem 0.6rem;
-    margin: 0.1rem 0 0 0.2rem;
-}
-.logOutBtn:hover{
-    background-color: #3d4b92;
-}
 .loginBtn {
     outline: none;
     border: none;
@@ -51,7 +56,8 @@
     color:#fff;
     background: #7355F7;
     padding: 0.5rem 1.5rem;
-    margin-left: 1rem;
+    margin: 0.5rem 1rem;
+    transition: 0.4s;
 }
 .loginBtn:hover { 
     background : #4B24F5

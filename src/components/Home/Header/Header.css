@@ -13,7 +13,7 @@
 .miniTitle {
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     color: #777777;
     text-transform: uppercase;
 }
@@ -21,6 +21,12 @@
     margin-bottom: 10px;
     font-size: 60px;
     font-weight: 800;
+}
+.headerContent {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #5e5e5e;
+    font-weight: 400;
 }
 .branBtn {
     background: #7355F7;

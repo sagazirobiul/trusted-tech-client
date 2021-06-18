@@ -25,7 +25,7 @@ const Contact = () => {
                                         <input placeholder="Your Name" type="text" required/>
                                     </Col>
                                     <Col md={6}>
-                                        <input placeholder="Your Email" type="text" required/>
+                                        <input placeholder="Your Email" type="email" required/>
                                     </Col>
                                     <Col md={12}>
                                         <input placeholder="Subject" type="text" required/>
