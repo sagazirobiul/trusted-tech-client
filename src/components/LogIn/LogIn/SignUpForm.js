@@ -29,7 +29,7 @@ const SignUpForm = ({redirect, user, setUser}) => {
                 {errors.email && <span className="text-warning">This field is required</span>}
                 <div class="input-field">
                     <span className="fIcon"><FontAwesomeIcon icon={faLock}/></span>
-                    <input type="password" placeholder="password" {...register("password", { required: true })} />
+                    <input type="password" placeholder="Password" {...register("password", { required: true })} />
                 </div>
                 <input className="iBtn" type="submit" value="sign Up"/>
                 <p className="social-text">Or Sign up with social account</p>

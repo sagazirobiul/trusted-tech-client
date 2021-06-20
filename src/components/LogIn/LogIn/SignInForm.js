@@ -20,12 +20,12 @@ const SignInForm = ({redirect, user, setUser}) => {
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <span className="fIcon"><FontAwesomeIcon icon={faEnvelope}/></span>
-                    <input placeholder="Your email" {...register("email", { required: true })} />
+                    <input placeholder="Email" {...register("email", { required: true })} />
                 </div>
                 {errors.email && <span className="text-warning">This field is required</span>}
                 <div class="input-field">
                     <span className="fIcon"><FontAwesomeIcon icon={faLock}/></span>
-                    <input type="password" placeholder="password" {...register("password", { required: true })} />
+                    <input type="password" placeholder="Password" {...register("password", { required: true })} />
                 </div>
                 {errors.password && <span className="text-warning">This field is required</span>}
                 <input className="iBtn" type="submit" value="sign In"/>
