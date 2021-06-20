@@ -9,6 +9,7 @@ import sPic3 from '../../../image/s3.png'
 import sPic4 from '../../../image/s4.png'
 import sPic5 from '../../../image/s5.png'
 import sPic6 from '../../../image/s6.png'
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Pricing = () => {
     return (
@@ -44,6 +45,8 @@ const Pricing = () => {
                        </Col>
                         <Tab.Content>
                         {
+                            PricingData.length === 0 ?
+                            <div className="spinner text-center mt-3"><Spinner/></div>:
                             PricingData.map((data, index) => <PricingCard id={index} data={data} key={index}/>)
                         }
                         </Tab.Content>

@@ -7,8 +7,8 @@ const Spinner = () => {
         <Loader
         type="Oval"
         color="#7456F7"
-        height={90}
-        width={90}
+        height={70}
+        width={70}
       />
     );
 };

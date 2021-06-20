@@ -26,4 +26,40 @@ export const loginWithProvider = (user, provider) => {
         newUserInfo.error = error.message;
         return newUserInfo;
     });
+};
+
+export const createAccount = (email, password) => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(result => {
+      let {email, photoURL} = result.user;
+      const userInfo = {
+          email: email,
+          img: photoURL
+      }
+      return userInfo;
+  })
+  .catch((error) => {
+    const userInfo = {
+      message: error.message
+    }
+    return userInfo;
+  });
+}
+
+export const loginWithEmail = (email, password) =>{
+  return firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(result => {
+    let {email, photoURL} = result.user;
+    const userInfo = {
+        email: email,
+        img: photoURL
+    }
+    return userInfo;
+  })
+  .catch((error) => {
+    const userInfo = {
+      message: error.message
+    }
+    return userInfo;
+  });
 }
