@@ -19,6 +19,10 @@
   background: #F0F0F0;
   border: 1px solid #ACACAC;
   text-align: center;
+  transition: 0.3s;
+}
+.pageCloseBtn:hover {
+  background: #d6d6d6;;
 }
 
 .fContainer::before {
