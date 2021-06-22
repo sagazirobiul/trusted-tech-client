@@ -16,17 +16,26 @@ const PricingCard = ({data, id}) => {
                                     <div className={`pricingCard pricingCard${id + 1}`}>
                                         <div className="pricingBox">
                                             <h4>{title}</h4>
-                                            <p className="pricePlan"><span className={`ph${id + 1}`}>${price}/</span>month</p>
+                                            <p className="pricePlan">
+                                                <span className={`ph${id + 1}`}>${price}/</span>month
+                                            </p>
                                             <h5>{name}</h5>
                                             <p className="planDescription">Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem.</p>
                                         </div>
                                         <li>
-                                        <span className="checkIcon"><FontAwesomeIcon icon={faCheckCircle}/></span> UI/UX Design.</li>
-                                        <li>
-                                        <span className="checkIcon"><FontAwesomeIcon icon={faCheckCircle}/></span> Related statistics.
+                                            <span className="checkIcon">
+                                            <FontAwesomeIcon icon={faCheckCircle}/>
+                                            </span> UI/UX Design.
                                         </li>
                                         <li>
-                                        <span className="checkIcon"><FontAwesomeIcon icon={faCheckCircle}/></span> Business Analysis.
+                                            <span className="checkIcon">
+                                            <FontAwesomeIcon icon={faCheckCircle}/>
+                                            </span> Related statistics.
+                                        </li>
+                                        <li>
+                                            <span className="checkIcon">
+                                            <FontAwesomeIcon icon={faCheckCircle}/>
+                                            </span> Business Analysis.
                                         </li>
                                     </div>
                                 </Fade>

@@ -1,6 +1,6 @@
 .popImg {
     height: 45px;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: pointer!important;
     margin: 0.2rem 0 0 0.7rem;
 }

@@ -18,7 +18,7 @@ const PopOver = () => {
     };
     const handleLogOut = () => {
         setUser({});
-        sessionStorage.clear();
+        localStorage.clear();
     }
     return (
         <div ref={ref}>

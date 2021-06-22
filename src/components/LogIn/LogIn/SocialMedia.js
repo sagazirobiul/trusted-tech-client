@@ -18,9 +18,15 @@ const SocialMedia = ({redirect, user, setUser}) => {
     }
     return (
         <div class="social-media">
-            <button onClick={() => handleSignIn(googleProvider)} className="social-icon"><FontAwesomeIcon icon={faGoogle}/></button>
-            <button onClick={() => handleSignIn(fbProvider)} className="social-icon"><FontAwesomeIcon icon={faFacebook}/></button>
-            <button onClick={() => handleSignIn(ghProvider)} className="social-icon"><FontAwesomeIcon icon={faGithub}/></button>
+            <button onClick={() => handleSignIn(googleProvider)} className="social-icon">
+                <FontAwesomeIcon icon={faGoogle}/>
+            </button>
+            <button onClick={() => handleSignIn(fbProvider)} className="social-icon">
+                <FontAwesomeIcon icon={faFacebook}/>
+            </button>
+            <button onClick={() => handleSignIn(ghProvider)} className="social-icon">
+                <FontAwesomeIcon icon={faGithub}/>
+            </button>
         </div>
     );
 };

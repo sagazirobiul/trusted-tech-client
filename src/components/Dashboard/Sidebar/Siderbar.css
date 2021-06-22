@@ -1,5 +1,6 @@
 .sideBar{
     height: 100%;
+    transition: 0.4s;
 }
 .sideBar li {
     list-style: none;

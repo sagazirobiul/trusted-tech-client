@@ -6,15 +6,13 @@ import BookingList from '../BookingList/BookingList';
 
 const UserDashboard = () => {
     return (
-        <div>
-            <Switch>
-                <Route exact path="/dashboard"><Book/></Route>
-                <Route exact path="/dashboard/book"><Book/></Route>
-                <Route exact path="/dashboard/book/:id"><Book/></Route>
-                <Route exact path="/dashboard/booking"><BookingList/></Route>
-                <Route exact path="/dashboard/review"><AddReview/></Route>
-            </Switch>
-        </div>
+        <Switch>
+            <Route exact path="/dashboard"><Book/></Route>
+            <Route exact path="/dashboard/book"><Book/></Route>
+            <Route exact path="/dashboard/book/:id"><Book/></Route>
+            <Route exact path="/dashboard/booking"><BookingList/></Route>
+            <Route exact path="/dashboard/review"><AddReview/></Route>
+        </Switch>
     );
 };
 

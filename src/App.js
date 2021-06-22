@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './components/Home/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
-import NavBar from './components/Shared/NavBar/NavBar';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/LogIn/PrivateRoute/PrivateRoute';
 import Form from './components/LogIn/LogIn/Form';
