@@ -4,16 +4,22 @@ import "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { loginWithProvider } from './LoginManager';
+import toast from 'react-hot-toast';
 
-const SocialMedia = ({redirect, user, setUser}) => {
+const SocialMedia = ({handleResponse}) => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     const fbProvider = new firebase.auth.FacebookAuthProvider();
     const ghProvider = new firebase.auth.GithubAuthProvider();
     const handleSignIn = (provider) => {
-        loginWithProvider(user, provider)
+        const loading = toast.loading('Please wait...');
+        loginWithProvider(provider)
         .then(res => {
-            setUser(res);
-            redirect();
+            if(res.error){
+                toast.dismiss(loading);
+                toast.error(res.error)
+            }
+            handleResponse(res)
+            toast.dismiss(loading);
         })
     }
     return (

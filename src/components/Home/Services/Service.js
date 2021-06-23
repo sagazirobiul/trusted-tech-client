@@ -5,7 +5,7 @@ import {UserContext} from '../../../App'
 import Fade from 'react-reveal/Fade';
 
 const Service = ({service}) => {
-    const [, , admin] = useContext(UserContext)
+    const { admin } = useContext(UserContext)
     const {_id, name, price, description, img} = service;
     return (
         <div className="col-md-4 service">

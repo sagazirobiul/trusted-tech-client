@@ -1,38 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
 .sideBar{
-    height: 100%;
     transition: 0.4s;
 }
-.sideBar li {
-    list-style: none;
-    margin-left: 1rem;
-    padding: 0.2rem 0;
+
+#sidebar {
+    font-family: 'Poppins', sans-serif;
 }
-.sideBar a {
+#sidebar ul {
+   margin: 0;
+   padding: 0.5rem 0.5rem 0.5rem 2rem;
+   list-style: none;
+}
+#sidebar ul li a {
+    padding: 0.6rem 0.8rem;
+    display: block;
+    font-size: 1.1rem;
+    color: #878787;
+}
+#sidebar ul li a:hover {
     text-decoration: none;
-    padding: 0.2rem 0;
-    color: #263179;
+    color: #000;
+    background-color: #EFF2F7;
 }
-.sideBar a:hover {
-    color: black;
-}
+
 .activePage{
-    background: #263179;
-    color: white!important;
-    display: block;
-    border-radius: 0.2rem;
-    padding: 0 0.3rem;
-}
-.activePage:hover{
-    background: #263179;
-    color: white!important;
-    display: block;
+    color: #000!important;
+    background-color: ;
 }
 .iconC {
-    margin-left: 5px;
+    margin-right: 5px;
 }
-.dashTitle a {
-    border: 2px solid #263179;
-    display: block;
-    border-radius: 0.3rem;
-    font-size: 1.3rem;
+
+.sideBrand {
+    color: #000;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sideBrand h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+.sideBrnIcon {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #7255F6;
+    margin-right: 5px;
 }

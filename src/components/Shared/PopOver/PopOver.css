@@ -4,3 +4,17 @@
     cursor: pointer!important;
     margin: 0.2rem 0 0 0.7rem;
 }
+.popUserImg {
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+.userName, 
+.userEmail{
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.userEmail {
+    margin-bottom: 5px;
+}

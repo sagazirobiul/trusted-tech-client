@@ -7,20 +7,43 @@ import desk from '../../../image/register.svg';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { UserContext } from '../../../App';
 import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
-
+import { UserContext } from '../../../App';
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
+import { handleSignOut } from './LoginManager';
 
 const Form = () => {
   const [isSignUp, setSignUp] = useState(false);
-  const [user, setUser] = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: "/" }};
-  const redirect = () => {
-      history.replace(from);
-  }
+  const handleResponse = (res) => {
+    setUser(res);
+    history.replace(from);
+    if(!res.error){
+      toast.success('Successfully Logged In!');
+    }
+    if (res.email === "test@t.com") {
+      swal({
+        title: "Warning!",
+        text: "You have entered the admin panel for testing. Please do not abuse this facility!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(ok => {
+          if (!ok) {
+              handleSignOut()
+                .then(res => {
+                    setUser(res)
+                    toast.error('Logged Out!');
+                })
+          }
+        });
+    }
+}
   return (
     <div className={`${ isSignUp ? "fContainer sign-up-mode" : "fContainer"}`}>
         <Link to="/">
@@ -28,8 +51,8 @@ const Form = () => {
         </Link>
        <div className="forms-container">
          <div className="signIn-singUp">
-            <SignInForm redirect={redirect} user={user} setUser={setUser}/>
-            <SignUpForm redirect={redirect} user={user} setUser={setUser}/>
+            <SignInForm handleResponse={handleResponse}/>
+            <SignUpForm handleResponse={handleResponse}/>
          </div>
        </div>
 

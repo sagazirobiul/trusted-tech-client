@@ -19,3 +19,21 @@
     font-weight: bold;
     color: #263179;
 }
+
+.dBranBtn {
+    background: #7355F7;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.dBranBtn:hover{
+    background: #4C25F5;
+}

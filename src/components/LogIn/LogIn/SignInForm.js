@@ -4,14 +4,20 @@ import { loginWithEmail } from './LoginManager';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import SocialMedia from './SocialMedia';
+import toast from 'react-hot-toast';
 
-const SignInForm = ({redirect, user, setUser}) => {
+const SignInForm = ({handleResponse}) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = ({email, password}) => {
+        const loading = toast.loading('Please wait...');
         loginWithEmail(email, password)
         .then(res => {
-            setUser(res);
-            redirect();
+            if(res.error){
+                toast.dismiss(loading);
+                toast.error(res.error)
+            }
+            handleResponse(res)
+            toast.dismiss(loading);
         })
     }
     return (
@@ -29,7 +35,7 @@ const SignInForm = ({redirect, user, setUser}) => {
             {errors.password && <span className="text-warning">This field is required</span>}
             <input className="iBtn" type="submit" value="sign In"/>
             <p class="social-text">Or Sign in with social platforms</p>
-            <SocialMedia user={user} setUser={setUser} redirect={redirect}/>
+            <SocialMedia handleResponse={handleResponse}/>
         </form>
     );
 };

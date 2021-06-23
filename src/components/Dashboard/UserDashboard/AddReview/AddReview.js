@@ -1,25 +1,37 @@
-import React, { useContext } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 import { UserContext } from '../../../../App';
+import userImg from '../../../../image/user.svg'
 
 const AddReview = () => {
-    const [user, setUser] = useContext(UserContext);
+    const { user } = useContext(UserContext);
+    const [review, setReviews] = useState([])
+    const {email, img} = user;
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const onSubmit = data => {
+    const onSubmit = ({name, address, description}) => {
         const review = {
-            name: data.name,
-            companyName: data.companyName,
-            description: data.description,
-            img: user.img,
+            name: name,
+            email: email,
+            address: address,
+            description: description,
+            img: img || userImg,
         }
-        fetch('http://localhost:5050/addReview',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(review)
+        axios.post('http://localhost:5050/addReview', review)
+        .then(res => {
+            if(res){
+                swal("Success!", "Your review has been submitted successfully. We appreciate your contirbution.", "success");
+                reset();
+            }
         })
-        .then(res => res.json())
-        .then(result => result && reset())
     }
+    useEffect(() => {
+        axios(`http://localhost:5050/userReview?email=${email}`)
+        .then(res => {
+            console.log(res);
+        })
+    }, [email])
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="orderList">
@@ -30,15 +42,15 @@ const AddReview = () => {
                         {errors.name && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="col-md-6">
-                        <input className="form-control" {...register("companyName", { required: true })} placeholder="Company's name, Designation"/>
-                        {errors.companyName && <span className="text-danger">This field is required</span>}
+                        <input className="form-control" {...register("address", { required: true })} placeholder="Your Address"/>
+                        {errors.address && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="col-md-12 mt-3">
-                        <textarea className="form-control" {...register("description", { required: true })} placeholder="description"/>
+                        <textarea className="form-control" {...register("description", { required: true })} placeholder="Description"/>
                         {errors.description && <span className="text-danger">This field is required</span>}
                     </div>
                 </div>
-                <button type="submit" className="btn branBtn mt-3">Submit</button>
+                <button type="submit" className="dBranBtn mt-3">Submit</button>
             </form>
         </div>
     );

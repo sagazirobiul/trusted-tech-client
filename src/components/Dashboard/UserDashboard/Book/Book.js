@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Book = () => {
-    const [user, setUser] = useContext(UserContext)
+    const { user } = useContext(UserContext)
     const userEmail = sessionStorage.getItem('email')
     const userName = sessionStorage.getItem('name')
     const {id} = useParams()

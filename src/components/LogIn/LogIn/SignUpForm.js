@@ -4,14 +4,20 @@ import { createAccount } from './LoginManager';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import SocialMedia from './SocialMedia';
+import toast from 'react-hot-toast';
 
-const SignUpForm = ({redirect, user, setUser}) => {
+const SignUpForm = ({handleResponse}) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = ({email, password}) => {
+        const loading = toast.loading('Please wait...');
         createAccount(email, password)
         .then(res => {
-            setUser(res);
-            redirect();
+            if(res.error){
+                toast.dismiss(loading);
+                toast.error(res.error)
+            }
+            handleResponse(res)
+            toast.dismiss(loading);
         })
     }
     return (
@@ -32,7 +38,7 @@ const SignUpForm = ({redirect, user, setUser}) => {
             </div>
             <input className="iBtn" type="submit" value="sign Up"/>
             <p className="social-text">Or Sign up with social account</p>
-            <SocialMedia user={user} setUser={setUser} redirect={redirect}/>
+            <SocialMedia handleResponse={handleResponse}/>
         </form>
     );
 };

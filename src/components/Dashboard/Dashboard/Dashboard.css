@@ -1,9 +1,11 @@
 #dashboard {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   align-items: stretch;
   perspective: 1500px;
   background: #f4f7fc;
+  font-family: 'Poppins', sans-serif;
 }
 
 #sidebar {
@@ -23,7 +25,6 @@
 
 #pageContent {
   width: 100%;
-  padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
   padding: 1rem;
@@ -51,7 +52,6 @@
   border: none;
 }
 
-
 /* Menu Hamburger Icon Animation */
 
 #nav-icon {
@@ -62,10 +62,10 @@
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: .7s ease-in-out;
+  -moz-transition: .7s ease-in-out;
+  -o-transition: .7s ease-in-out;
+  transition: .7s ease-in-out;
   cursor: pointer;
   border-radius: 0.133rem;
   margin-right: 0.5rem;

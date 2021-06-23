@@ -5,19 +5,18 @@ import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/LogIn/PrivateRoute/PrivateRoute';
 import Form from './components/LogIn/LogIn/Form';
+import { Toaster } from 'react-hot-toast';
+import { getDecodedUser } from "./components/LogIn/LogIn/LoginManager";
 
 export const UserContext = createContext();
 function App() {
   const [admin, setAdmin] = useState(false);
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    img: '',
-    error: ''
-  })
+  const [user, setUser] = useState(getDecodedUser());
+  console.log(user);
   return (
-    <UserContext.Provider value={[user, setUser, admin, setAdmin]}>
+    <UserContext.Provider value={{user, setUser, admin, setAdmin}}>
       <Router>
+          <Toaster/>
           <Switch>
             <PrivateRoute path="/dashboard">
               <Dashboard/>

@@ -1,66 +1,96 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../../../config/firebaseConfig";
+import jwt_decode from "jwt-decode";
 
 if(!firebase.apps.length){
     firebase.initializeApp(firebaseConfig);
 }
 
-const handleToken = (email) => {
-    localStorage.setItem('email', email)
+const setToken = () => {
+  firebase.auth().currentUser.getIdToken(true)
+  .then(function(idToken) {
+    localStorage.setItem('token', idToken);
+  })
 }
 
-export const loginWithProvider = (user, provider) => {
+export const loginWithProvider = (provider) => {
     return firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-        const {displayName, email, photoURL} = result.user;
-        const newUserInfo = {...user}
-        newUserInfo.name = displayName;
-        newUserInfo.email = email;
-        newUserInfo.img = photoURL;
-        handleToken(email)
-        return newUserInfo;
-    }).catch((error) => {
-        const newUserInfo = {...user}
-        newUserInfo.error = error.message;
-        return newUserInfo;
+    .then( res => {
+        setToken();
+        return handleResponse(res);
+    }).catch( error  => {
+        const message = {
+          error: error.message
+        }
+        return message;
     });
 };
 
 export const createAccount = (email, password) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(result => {
-      let {email, photoURL} = result.user;
-      const userInfo = {
-          email: email,
-          img: photoURL
+    .then( res => {
+      setToken();
+      return handleResponse(res);
+    })
+    .catch( error  => {
+      const message = {
+        error: error.message
       }
-      handleToken(email)
-      return userInfo;
-  })
-  .catch((error) => {
-    const userInfo = {
-      message: error.message
-    }
-    return userInfo;
-  });
+      return message;
+    });
 }
 
 export const loginWithEmail = (email, password) =>{
   return firebase.auth().signInWithEmailAndPassword(email, password)
-  .then(result => {
-    let {email, photoURL} = result.user;
-    const userInfo = {
-        email: email,
-        img: photoURL
-    }
-    handleToken(email)
-    return userInfo;
+  .then( res => {
+    setToken();
+    return handleResponse(res);
   })
-  .catch((error) => {
-    const userInfo = {
-      message: error.message
-    }
-    return userInfo;
+  .catch( error => {
+      const message = {
+      error: error.message
+      }
+      return message;
   });
+}
+
+const handleResponse = (res) => {
+  const {displayName, email, photoURL} = res.user;
+  const userInfo = {
+    isSignedIn: true,
+    name: displayName,
+    email: email,
+    img: photoURL
+  }
+  return userInfo;
+}
+
+export const getDecodedUser = () => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+      return {};
+  }
+  const { name, picture, email } = jwt_decode(token);
+  const decodedUser = {
+      isSignedIn: true,
+      name: name,
+      email: email,
+      img: picture,
+  }
+  return decodedUser;
+}
+
+export const handleSignOut = () => {
+  return firebase.auth().signOut()
+    .then(() => {
+        localStorage.removeItem('token');
+        const signedOutUser = {
+            isSignedIn: false,
+            name: '',
+            email: '',
+            img: ''
+        }
+        return signedOutUser;
+      })
 }

@@ -10,7 +10,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import PopOver from '../PopOver/PopOver';
 
 const NavBar = () => {
-    const [user, setUser] = useContext(UserContext)
+    const { user } = useContext(UserContext)
     const [isSticky, setSticky] = useState(false)
     const email = sessionStorage.getItem('email')
     useEffect(() => {

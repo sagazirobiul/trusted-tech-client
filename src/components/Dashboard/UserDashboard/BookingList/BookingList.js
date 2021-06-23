@@ -4,7 +4,7 @@ import Spinner from '../../../Shared/Spinner/Spinner';
 import './BookingList.css'
 
 const BookingList = () => {
-    const [user, setUser] = useContext(UserContext)
+    const { user } = useContext(UserContext)
     const email = sessionStorage.getItem('email')
     const [bookings, setBookings] = useState([])
     useEffect(() => {

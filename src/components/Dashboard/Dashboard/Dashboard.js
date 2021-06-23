@@ -7,7 +7,7 @@ import UserDashboard from '../UserDashboard/UserDashboard/UserDashboard';
 import './Dashboard.css';
 
 const Dashboard= () => {
-    const [user, setUser, admin, setAdmin] = useContext(UserContext);
+    const { user, admin, setAdmin } = useContext(UserContext);
     const email = sessionStorage.getItem('email')
     const [sideToggle, setSideToggle] = useState(false)
     useEffect(() => {
