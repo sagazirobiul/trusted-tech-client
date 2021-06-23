@@ -16,5 +16,8 @@
     font-weight: 700;
 }
 .userEmail {
-    margin-bottom: 5px;
+    margin: 0.1rem 0 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: rgba(0,0,0,.7);
 }
