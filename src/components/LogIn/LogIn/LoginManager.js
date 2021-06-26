@@ -56,11 +56,17 @@ export const loginWithEmail = (email, password) =>{
   });
 }
 
+const defaultName = (str) => {
+  let myStr = str
+  let firstWord = myStr.substring(0, 4)
+  return firstWord;
+}
+
 const handleResponse = (res) => {
   const {displayName, email, photoURL} = res.user;
   const userInfo = {
     isSignedIn: true,
-    name: displayName,
+    name: displayName || defaultName(email),
     email: email,
     img: photoURL || userImg,
   }
@@ -75,7 +81,7 @@ export const getDecodedUser = () => {
   const { name, picture, email } = jwt_decode(token);
   const decodedUser = {
       isSignedIn: true,
-      name: name,
+      name: name || defaultName(email),
       email: email,
       img: picture || userImg,
   }

@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { Button, Overlay } from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover'
 import { UserContext } from '../../../App';
-import userImg from '../../../image/user.svg'
 import { handleSignOut } from '../../LogIn/LogIn/LoginManager';
 import './PopOver.css';
 import toast from 'react-hot-toast';
@@ -29,7 +28,7 @@ const PopOver = () => {
     }
     return (
         <div ref={ref}>
-            <img src={`${img ? img : userImg}`} alt="" onClick={handleClick} className="popImg"/>
+            <img src={img} alt="" onClick={handleClick} className="popImg"/>
             <Overlay
                 show={show}
                 target={target}
@@ -39,8 +38,8 @@ const PopOver = () => {
             >
                 <Popover id="popover-contained">
                     <Popover.Content className="text-center">
-                        <img src={`${img ? img : userImg}`} alt="" className="popUserImg"/>
-                        <p className="userName">{`${name || 'Ariel' }`}</p>
+                        <img src={img} alt="" className="popUserImg"/>
+                        <p className="userName">{`${name}`}</p>
                         <p className="userEmail">{email}</p>
                         <Button variant="outline-danger" size="sm" onClick={signOut}>Log out</Button>
                     </Popover.Content>
