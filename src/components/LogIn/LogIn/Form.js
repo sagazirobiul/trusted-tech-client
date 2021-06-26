@@ -22,14 +22,14 @@ const Form = () => {
   let { from } = location.state || { from: { pathname: "/" }};
   const handleResponse = (res) => {
     setUser(res);
-    history.replace(from);
     if(!res.error){
       toast.success('Successfully Logged In!');
+      history.replace(from);
     }
     if (res.email === "test@t.com") {
       swal({
         title: "Warning!",
-        text: "You have entered the admin panel for testing. Please do not abuse this facility!",
+        text: "You have entered the admin panel for testing. Please don't abuse this facility!",
         icon: "warning",
         buttons: true,
         dangerMode: true,

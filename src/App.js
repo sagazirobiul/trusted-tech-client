@@ -12,9 +12,9 @@ export const UserContext = createContext();
 function App() {
   const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState(getDecodedUser());
-  console.log(user);
+  const [selectedService, setSelectedService] = useState({});
   return (
-    <UserContext.Provider value={{user, setUser, admin, setAdmin}}>
+    <UserContext.Provider value={{user, setUser, admin, setAdmin, selectedService, setSelectedService}}>
       <Router>
           <Toaster/>
           <Switch>

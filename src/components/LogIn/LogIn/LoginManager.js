@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../../../config/firebaseConfig";
 import jwt_decode from "jwt-decode";
+import userImg from '../../../image/user.svg'
 
 if(!firebase.apps.length){
     firebase.initializeApp(firebaseConfig);
@@ -61,7 +62,7 @@ const handleResponse = (res) => {
     isSignedIn: true,
     name: displayName,
     email: email,
-    img: photoURL
+    img: photoURL || userImg,
   }
   return userInfo;
 }
@@ -76,7 +77,7 @@ export const getDecodedUser = () => {
       isSignedIn: true,
       name: name,
       email: email,
-      img: picture,
+      img: picture || userImg,
   }
   return decodedUser;
 }

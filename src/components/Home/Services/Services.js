@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Spinner from '../../Shared/Spinner/Spinner';
 import Service from './Service';
@@ -6,11 +7,8 @@ const Services = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
         // fetch('https://trusted-tech.herokuapp.com/services')
-        fetch('http://localhost:5050/services')
-        .then(res => res.json())
-        .then(data => {
-            setServices(data);
-        })
+        axios('http://localhost:5050/services')
+        .then(res => setServices(res.data))
     }, [])
     return (
         <section id="services" className="services">

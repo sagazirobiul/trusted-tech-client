@@ -46,7 +46,7 @@ const NavBar = () => {
                             <Nav.Link href="#contact" className="nav-link">Contact Us</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link as={Link} to="/dashboard" className="nav-link">Dashboard</Nav.Link>
+                            <Nav.Link as={Link} to="/dashboard/profile" className="nav-link">Dashboard</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             {

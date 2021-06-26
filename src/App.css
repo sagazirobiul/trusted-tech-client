@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
 .App {
   text-align: center;
-  font-family: sans-serif!important;
+  font-family: 'Poppins', sans-serif!important;
 }
 
 .App-logo {

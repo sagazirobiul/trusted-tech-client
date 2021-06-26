@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Siderbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList} from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList, faUserAlt, faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../../App';
 import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 
 const Sidebar = () => {
     const { admin } = useContext(UserContext);
+
     return (
         <div className="sideBar">
             <div className="sideBrand">
@@ -15,11 +16,16 @@ const Sidebar = () => {
                 <h2>Trusted <span className="navHighlight">Tech</span></h2>
             </div>
             <nav id="sidebar">
-                <ul>
+                <ul>    
+                        <li>
+                            <NavLink activeClassName="activePage" exact to="/dashboard/profile">
+                                <FontAwesomeIcon icon={faUserCircle} className="iconC"/> Profile
+                            </NavLink>
+                        </li>
                     {admin ?
                         <>
                             <li>
-                                <NavLink activeClassName="activePage" exact to="/dashboard">
+                                <NavLink activeClassName="activePage" to="/dashboard/orderList">
                                     <FontAwesomeIcon icon={faList} className="iconC"/> Order list
                                 </NavLink>
                             </li>
@@ -42,7 +48,7 @@ const Sidebar = () => {
                         :
                         <>
                             <li>
-                                <NavLink activeClassName="activePage" exact to="/dashboard">
+                                <NavLink activeClassName="activePage" exact to="/dashboard/book">
                                     <FontAwesomeIcon icon={faShoppingCart} className="iconC"/> Book
                                 </NavLink>
                             </li>

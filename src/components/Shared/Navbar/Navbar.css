@@ -5,7 +5,7 @@
     width: 100%;
     z-index: 99!important;
     transition: 0.5s!important;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 .navDefault {
     transition: 0.5s!important;
@@ -19,7 +19,7 @@
     font-weight: 500!important;
     transition: 0.3s;
     font-size: 1.1rem;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 .mainNav .nav-link:after {
     content: '';

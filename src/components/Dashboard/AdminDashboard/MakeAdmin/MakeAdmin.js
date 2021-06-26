@@ -13,7 +13,6 @@ const MakeAdmin = () => {
         .then(result => result && reset())
     };
     return (
-        <>
         <div className="orderList">
             <h5 className="dTitle mb-3">Make Admin</h5>        
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -28,8 +27,7 @@ const MakeAdmin = () => {
                 </div>
             </form>
         </div>
-        </>
-    );
+    )
 };
 
 export default MakeAdmin;

@@ -33,7 +33,7 @@
     border: 7px solid #fdd2ff;
 }
 .priceLink4 > .nav-link {
-    border: 7px solid #c0dbff;
+    border: 7px solid #CBEDFF;
 }
 .priceLink5 > .nav-link {
     border: 7px solid #dfdaff;
@@ -57,7 +57,7 @@
 }
 .priceLink4 > a:hover, 
 .priceLink4 > .nav-link.active {
-    background: #0B76FC;
+    background: #76CDFF;
 }
 .priceLink5 > a:hover, 
 .priceLink5 > .nav-link.active {
@@ -143,11 +143,11 @@
 }
 
 .pricingCard4 {
-    background: #B2D2FF;
+    background: #d2efff;
 }
 .ph4, 
 .pricingCard4 > li > .checkIcon {
-    color: #0B76FC;
+    color: #5bc5ff;
 }
 
 .pricingCard5 {

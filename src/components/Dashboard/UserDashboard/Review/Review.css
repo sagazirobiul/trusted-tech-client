@@ -1,0 +1,13 @@
+.userReviewBox {
+    background: #f1ecff;
+    padding: 2.5rem 5rem;
+    border-radius: 0.6rem;
+    text-align: center;
+    min-height: 100vh;
+}
+.userReviewBox button {
+    margin: 0 0.5rem;
+}
+.reviewForm textarea {
+    min-height: 130px!important;
+}

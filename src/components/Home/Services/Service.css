@@ -53,7 +53,7 @@
 }
 .serviceImg {
     height: 90px;
-    background-color: rgba(102, 67, 255, 0.438);
+    background-color: rgb(213 196 255);
     padding: 0.2rem 0.5rem;
     border-radius: 0.5rem;
     transition: 0.4s;
