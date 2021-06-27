@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import './Form.css'
+import './LoginModal.css';
 import "firebase/auth";
 import log from '../../../image/log.svg';
 import desk from '../../../image/register.svg';
@@ -17,9 +17,11 @@ import { handleSignOut } from './LoginManager';
 const Form = () => {
   const [isSignUp, setSignUp] = useState(false);
   const { setUser } = useContext(UserContext);
+
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: "/" }};
+
   const handleResponse = (res) => {
     setUser(res);
     if(!res.error){
@@ -43,7 +45,8 @@ const Form = () => {
           }
         });
     }
-}
+  }
+  
   return (
     <div className={`${ isSignUp ? "fContainer sign-up-mode" : "fContainer"}`}>
         <Link to="/">

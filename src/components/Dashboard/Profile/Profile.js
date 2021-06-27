@@ -1,10 +1,21 @@
 import React, { useContext } from 'react';
 import { Button, Col } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import { UserContext } from '../../../App';
+import { handleSignOut } from '../../LogIn/LogIn/LoginManager';
 import './Profile.css'
 
 const Profile = () => {
-    const {user: {name, email, img}, serUser} = useContext(UserContext)
+    const {user: {name, email, img}, setUser} = useContext(UserContext);
+    const signOut = () => {
+        const loading = toast.loading('Please wait...');
+        handleSignOut()
+        .then(res => {
+            toast.dismiss(loading);
+            setUser(res)
+            toast.error('Logged Out!');
+        })
+    }
     return (
         <Col md={5} className="mx-auto">
             <div className="profile">
@@ -13,7 +24,7 @@ const Profile = () => {
                     <img src={img} alt="" />
                     <h3>{name}</h3>
                     <h5>{email}</h5>
-                    <Button>LogOut</Button>
+                    <button className="mainBtn mt-3" onClick={signOut}>Log out</button>
                 </div>
             </div>
         </Col>

@@ -4,7 +4,7 @@ import Home from './components/Home/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/LogIn/PrivateRoute/PrivateRoute';
-import Form from './components/LogIn/LogIn/Form';
+import LoginModal from './components/LogIn/LogIn/LoginModal';
 import { Toaster } from 'react-hot-toast';
 import { getDecodedUser } from "./components/LogIn/LogIn/LoginManager";
 
@@ -22,7 +22,7 @@ function App() {
               <Dashboard/>
             </PrivateRoute>
             <Route path="/login">
-              <Form/>
+              <LoginModal/>
             </Route>
             <Route exact path="/">
               <Home/>

@@ -3,6 +3,7 @@
     background: #fff;
     text-align: center;
     margin: 2rem auto;
+    border-radius: 0.3rem;
 }
 
 .profile h2 {
@@ -17,11 +18,12 @@
     height: 120px;
     width: 120px;
     border-radius: 50%;
+    margin: 1rem 0;
 }
 
 .profile h3 {
     font-size: 1.5rem;
-    margin: 0.3rem 0;
+    margin: 0.6rem 0;
 }
 
 .profile h5 {
@@ -31,4 +33,21 @@
 
 .profileInfo {
     padding: 1.3rem;
+}
+
+.mainBtn {
+    background: #7355F7;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    transition: 0.4s;
+}
+.mainBtn:hover {
+    background-color: #4C25F5;
 }
