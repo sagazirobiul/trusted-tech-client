@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { Button, Col, Form } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
 import { UserContext } from '../../../../App';
 
@@ -59,43 +59,43 @@ const ReviewForm = ({setIsUpdated}) => {
     }
     return (
         <section>
-            <Form onSubmit={handleSubmit(onSubmit)} className="w-100 form-main">
-                <div className="p-5 mx-auto mt-5 bg-white" style={{ borderRadius: "15px", maxWidth: '50rem' }}>
-                    <Form.Row className="justify-content-center px-4">
-                        <Form.Group as={Col} md={12}>
-                            <Form.Label style={{ fontWeight: "bold" }}>Your Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                defaultValue={name || ''}
-                                {...register("name", { required: true })}
-                                placeholder="Your Name" />
-                        </Form.Group>
-                        <Form.Group as={Col} md={12}>
-                            <Form.Label style={{ fontWeight: "bold" }}>Address</Form.Label>
-                            <Form.Control
-                                type="text"
-                                defaultValue={address || ""}
-                                {...register("address", { required: true })}
-                                placeholder="Address" />
-                        </Form.Group>
-                        <Form.Group as={Col} md={12}>
-                            <Form.Label style={{ fontWeight: "bold" }}>Description</Form.Label>
-                            <Form.Control
-                                style={{ height: "10rem" }}
-                                type="text"
-                                defaultValue={description || ""}
-                                as="textarea"
-                                {...register("description", { required: true })}
-                                placeholder="Description" />
-                        </Form.Group>
-                    </Form.Row>
-                    <div className="text-center mt-4">
-                        <Button type="submit" className="bBranBtn" style={{ padding: ".6rem 2rem" }}>
-                            submit
-                        </Button>
-                    </div>
-                </div>
-            </Form>
+            <div className="p-5 mx-auto mt-5 bg-white" style={{ borderRadius: "15px", maxWidth: '50rem' }}>
+                <Form onSubmit={handleSubmit(onSubmit)} className="w-100 form-main">
+                        <Row className="justify-content-center px-4">
+                            <Form.Group as={Col} md={12}>
+                                <Form.Label style={{ fontWeight: "bold" }}>Your Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    defaultValue={name || ""}
+                                    {...register("name", { required: true })}
+                                    placeholder="Your Name" />
+                            </Form.Group>
+                            <Form.Group as={Col} md={12}>
+                                <Form.Label style={{ fontWeight: "bold" }}>Address</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    defaultValue={address || ""}
+                                    {...register("address", { required: true })}
+                                    placeholder="Address" />
+                            </Form.Group>
+                            <Form.Group as={Col} md={12}>
+                                <Form.Label style={{ fontWeight: "bold" }}>Description</Form.Label>
+                                <Form.Control
+                                    style={{ height: "10rem" }}
+                                    type="text"
+                                    defaultValue={description || ""}
+                                    as="textarea"
+                                    {...register("description", { required: true })}
+                                    placeholder="Description" />
+                            </Form.Group>
+                        </Row>
+                        <div className="text-center mt-4">
+                            <Button type="submit" className="bBranBtn" style={{ padding: ".6rem 2rem" }}>
+                                submit
+                            </Button>
+                        </div>
+                </Form>
+            </div>
         </section>
     );
 };

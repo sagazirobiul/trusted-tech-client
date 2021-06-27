@@ -1,31 +1,34 @@
+import axios from 'axios';
 import React from 'react';
+import { Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, formState: { errors }, reset} = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5050/addAdmin',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email: data.email})
-        })
-        .then(res => res.json())
-        .then(result => result && reset())
+        axios.post('http://localhost:5050/addAdmin',{email: data.email})
+        .then(res => reset())
     };
     return (
-        <div className="orderList">
-            <h5 className="dTitle mb-3">Make Admin</h5>        
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="row">
-                    <div className="col-md-4">
-                        <input className="form-control" {...register("email", { required: true })} placeholder="Email"/>
-                        {errors.email && <span className="text-danger">This field is required</span>}
-                    </div>
-                    <div className="col-md-2">
-                        <button type="submit" className="btn branBtn">Submit</button>
-                    </div>
-                </div>
-            </form>
+        <div className="px-2">
+            <Form onSubmit={handleSubmit(onSubmit)} className="makeAdmin">
+                <Row>
+                    <Col>
+                        <Form.Group>
+                            <Form.Label style={{ fontWeight: "bold" }}>Email</Form.Label>
+                            <Form.Control
+                                type="text"
+                                {...register("email", { required: true })}
+                                placeholder="email"
+                            />
+                            {errors.email && <span className="text-danger">This field is required</span>}
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <button type="submit" className="mainBtn adminBtn">Submit</button>
+                    </Col>
+                </Row>
+            </Form>
         </div>
     )
 };

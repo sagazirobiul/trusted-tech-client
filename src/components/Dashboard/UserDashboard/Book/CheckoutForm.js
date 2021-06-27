@@ -37,12 +37,11 @@ const useOptions = () => {
 };
 
 const CheckoutForm = () => {
-  const {user:{name, email}, selectedService} = useContext(UserContext);
+  const {user, selectedService: { name, img, _id, description, price}} = useContext(UserContext);
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
-  const { register, handleSubmit } = useForm();
-
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = async data => {
     if (!stripe || !elements) {
       return;
@@ -61,17 +60,24 @@ const CheckoutForm = () => {
     else {
         const orderData = {
           ...data,
-          ...selectedService,
-          paymentMethod : 'card',
-          paymentId : paymentMethod.id
+          paymentMethod : "card",
+          paymentId : paymentMethod.id,
+          status : "Pending",
+          serviceId : _id,
+          serviceName: name,
+          description: description,
+          img: img,
+          price: price
         }
         axios.post('http://localhost:5050/addOrder', orderData)
         .then(res => {
             toast.dismiss(loading);
-            if(res){
+            if(res.data === true){
                 swal("Congratulation!", "Your order has been placed successfully", "success");
+                reset();
+            }else{
+                swal("Failed!", "Something went wrong! please try again", "error");
             }
-            swal("Failed!", "Something went wrong! please try again", "error");
         })
         .catch(err => {
           toast.dismiss(loading);
@@ -88,7 +94,7 @@ return (
                 <Form.Label style={{ fontWeight: "bold" }}>Your Name</Form.Label>
                 <Form.Control
                     type="text"
-                    defaultValue={name}
+                    defaultValue={user.name}
                     {...register("name", { required: true })}
                     placeholder="Your Name" />
             </Form.Group>
@@ -97,7 +103,7 @@ return (
                 <Form.Label style={{ fontWeight: "bold" }}>Email</Form.Label>
                 <Form.Control
                     type="text"
-                    defaultValue={email}
+                    defaultValue={user.email}
                     {...register("email", { required: true })}
                     placeholder="Email Address" />
             </Form.Group>

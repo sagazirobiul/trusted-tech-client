@@ -154,3 +154,15 @@
   left: calc(50% - 10px);
   top: 15px;
 }
+
+.adminBtn {
+  margin-top: 1.8rem;
+  margin-left: -1rem;
+}
+
+.makeAdmin {
+    background: #FFFFFF;
+    border-radius: 1rem;
+    padding: 3rem 2rem 8rem;
+    margin-top: 2rem;
+}

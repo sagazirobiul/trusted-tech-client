@@ -1,8 +1,9 @@
 .orderList{
     background: white;
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 0.3rem;
+    width: 100%;
 }
 .tableTitle {
     background: #efefef;
@@ -12,4 +13,9 @@
 .tableTitle p {
     margin-bottom: 0;
     font-weight: 500;
+}
+
+.table-hover tbody tr:hover {
+    color: #212529;
+    background-color: #fcfcfc!important;
 }

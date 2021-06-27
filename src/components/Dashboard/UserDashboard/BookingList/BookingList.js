@@ -1,21 +1,63 @@
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import { Button } from 'react-bootstrap';
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 import { UserContext } from '../../../../App';
 import Spinner from '../../../Shared/Spinner/Spinner';
 import './BookingList.css'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 const BookingList = () => {
-    const { user } = useContext(UserContext)
-    const email = sessionStorage.getItem('email')
-    const [bookings, setBookings] = useState([])
+    const { user } = useContext(UserContext);
+    const [bookings, setBookings] = useState([]);
+    const [isUpdated, setIsUpdated] = useState(false);
+
     useEffect(() => {
-        fetch('http://localhost:5050/bookingList?email='+user.email ||+email)
-        .then(res => res.json())
-        .then(data => setBookings(data))
-    },[user.email, email])
+        axios.get(`http://localhost:5050/bookingList?email=${user.email}`)
+        .then(res => setBookings(res.data))
+    },[user.email, isUpdated])
+
+    const handleDelete = (id) => {
+        setIsUpdated(false)
+        swal({
+            title: "Cancel Booking?",
+            text: "Are you sure! you want to cancel?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then( wantDelete => {
+            if (wantDelete) {
+                const loading = toast.loading('deleting...Please wait!')
+                axios.delete(`http://localhost:5050/deleteOrder/${id}`)
+                .then(res => {
+                    toast.dismiss(loading)
+                    if(res){
+                        setIsUpdated(true);
+                        toast.success('Your Booking is successfully canceled!');
+                    }
+                    else{
+                        toast.error('Something went wrong, please try again');
+                    }
+                })
+                .catch(err => {
+                    toast.dismiss(loading)
+                    swal({
+                        title: "Failed!",
+                        text: 'Something went wrong, please try again',
+                        icon: "error",
+                      });
+                })
+            } 
+          });
+    }
     return (
         <div>
             {bookings.length === 0 && <div className="mt-5 p-5 text-center"><Spinner/></div>}
-            <div className="row">
+            <div className="row px-3">
                 {
                     bookings.map(({_id, serviceName,status,description,img}) => {
                         return(<div className="col-md-4" key={_id}>
@@ -23,13 +65,15 @@ const BookingList = () => {
                                 <div className="d-flex justify-content-between">
                                     <img src={img} alt=""/>
                                     <div>
-                                        <p className="serviceState" style={{color: '#fff', background: status === 'Pending' ? '#dc3545' : status === 'On going' ? '#0d6efd' :'#198754'}}>{status}</p>
+                                        <p className="serviceState" style={{color: '#fff', background: status === 'Pending' ? 'rgb(255 78 96)' : status === 'On going' ? 'rgb(73 146 255)' :'rgb(31 204 123)'}}>{status}</p>
                                     </div>
                                 </div>
                                 <h6>{serviceName}</h6>
                                 <p>{description}</p>
+                                <Button variant="outline-danger" onClick={() => handleDelete(_id)}> 
+                                    <FontAwesomeIcon icon={faTimesCircle}/> { status === 'Done' ? 'Remove':'Cancel'}
+                                </Button>
                             </div>
-                            
                         </div>)
                     })
                 }
