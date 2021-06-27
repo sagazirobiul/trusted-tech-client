@@ -19,9 +19,8 @@ const Book = () => {
                 setSelectedService(res.data[0])
             }
         })
-    }, [])
+    }, [selectedService.name, setSelectedService])
 
-    const restServices = services.filter(({name}) => name !== selectedService.name)
     const handleSelection = e => {
         const getService = services.find(({name}) => e.target.value === name)
         setSelectedService(getService)
@@ -30,16 +29,16 @@ const Book = () => {
     const stripePromise = loadStripe('pk_test_51IeH1tCIW0BkrTRE8d8afxDs1DeFYm5stqp4qvLPKUpAUCNdfkEn1q1MOwS6ZLdgpNJNDfjIPs0aF29kZ2yeqTok00HDaxItJY');
 
     return (
-        <div>
+        <div className="bookForm">
             <Row>
                 <Col md={6} xs={12} className="my-3">
                     <Form.Label style={{ fontWeight: "bold" }}>Service</Form.Label>
-                    <select class="form-select" aria-label="Default select example" onChange={handleSelection}>
+                    <select class="form-select" onChange={handleSelection}>
                         {selectedService.name && 
-                            <option value={selectedService.name}>{selectedService.name}</option>
+                            <option className="activeService" value={selectedService.name}>{selectedService.name}</option>
                         }
                         {
-                            restServices?.map(({id, name}) => <option key={id} value={name}>{name}</option>)
+                            services?.map(({id, name}) => <option key={id} value={name}>{name}</option>)
                         }
                     </select>
                 </Col>

@@ -1,9 +1,13 @@
-.form-control:disabled {
-    background-color: #fff!important;
+.bookForm {
+    background: #fff;
+    padding: 2rem 3rem;
+    margin: 2rem 1rem;
+    border-radius: 1rem;
 }
 
-.form-select:focus {
-    border-color: #7355F7!important;
+.form-select:focus,
+.form-control:focus  {
+    border-color: #8468ff!important;
     box-shadow: 0 0 0 0.2rem rgb(4 0 255 / 26%)!important;
 }
 
@@ -22,3 +26,7 @@
     border-radius: .25rem;
 }
 
+.activeService {
+    background: #66b0ffbe;
+    color: #fff;
+}

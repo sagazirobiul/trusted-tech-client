@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../../App';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 
 const useOptions = () => {
@@ -36,7 +37,7 @@ const useOptions = () => {
 };
 
 const CheckoutForm = () => {
-  const {user:{name, email }} = useContext(UserContext);
+  const {user:{name, email}, selectedService} = useContext(UserContext);
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
@@ -58,7 +59,24 @@ const CheckoutForm = () => {
         return swal("Failed!", error.message, "error", { dangerMode: true });
     } 
     else {
-      // handleOrder(paymentMethod.id);
+        const orderData = {
+          ...data,
+          ...selectedService,
+          paymentMethod : 'card',
+          paymentId : paymentMethod.id
+        }
+        axios.post('http://localhost:5050/addOrder', orderData)
+        .then(res => {
+            toast.dismiss(loading);
+            if(res){
+                swal("Congratulation!", "Your order has been placed successfully", "success");
+            }
+            swal("Failed!", "Something went wrong! please try again", "error");
+        })
+        .catch(err => {
+          toast.dismiss(loading);
+          swal("Failed!", "Something went wrong! please try again", "error")
+        })
     }
   };
 
@@ -107,7 +125,9 @@ return (
               </div>
             </Col>
         </Row>
-        <button className="mainBtn" type="submit" disabled={!stripe}>Pay Now</button>
+        <div className="text-center">
+          <button className="mainBtn mt-4" type="submit" disabled={!stripe}>Pay Now</button>
+        </div>
     </Form>
   );
 };
