@@ -8,6 +8,11 @@
 .userReviewBox button {
     margin: 0 0.5rem;
 }
-.reviewForm textarea {
-    min-height: 130px!important;
+.reviewForm {
+    background: white;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 4%);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    margin-top: 2.5rem;
 }

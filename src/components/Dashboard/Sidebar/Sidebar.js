@@ -6,7 +6,7 @@ import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList,
 import { UserContext } from '../../../App';
 import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 
-const Sidebar = () => {
+const Sidebar = ({setTitle}) => {
     const { admin } = useContext(UserContext);
 
     return (
@@ -18,29 +18,29 @@ const Sidebar = () => {
             <nav id="sidebar">
                 <ul>    
                         <li>
-                            <NavLink activeClassName="activePage" exact to="/dashboard/profile">
+                            <NavLink onClick={() => setTitle('Profile')} activeClassName="activePage" exact to="/dashboard/profile">
                                 <FontAwesomeIcon icon={faUserCircle} className="iconC"/> Profile
                             </NavLink>
                         </li>
                     {admin ?
                         <>
                             <li>
-                                <NavLink activeClassName="activePage" to="/dashboard/orderList">
+                                <NavLink onClick={() => setTitle('Order List')} activeClassName="activePage" to="/dashboard/orderList">
                                     <FontAwesomeIcon icon={faList} className="iconC"/> Order list
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="activePage" to="/dashboard/addService">
+                                <NavLink onClick={() => setTitle('Add Service')} activeClassName="activePage" to="/dashboard/addService">
                                     <FontAwesomeIcon icon={faFileMedical} className="iconC"/> Add Service
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="activePage" to="/dashboard/makeAdmin">
+                                <NavLink onClick={() => setTitle('Make Admin')} activeClassName="activePage" to="/dashboard/makeAdmin">
                                     <FontAwesomeIcon icon={faUserPlus} className="iconC"/> Make Admin
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="activePage" to="/dashboard/manageServices">
+                                <NavLink onClick={() => setTitle('Manage Services')} activeClassName="activePage" to="/dashboard/manageServices">
                                     <FontAwesomeIcon icon={faCog} className="iconC"/> Manage Services
                                 </NavLink>
                             </li>
@@ -48,17 +48,17 @@ const Sidebar = () => {
                         :
                         <>
                             <li>
-                                <NavLink activeClassName="activePage" exact to="/dashboard/book">
+                                <NavLink onClick={() => setTitle('Book')} activeClassName="activePage" exact to="/dashboard/book">
                                     <FontAwesomeIcon icon={faShoppingCart} className="iconC"/> Book
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="activePage" to="/dashboard/booking">
+                                <NavLink onClick={() => setTitle('Booking List')} activeClassName="activePage" to="/dashboard/booking">
                                     <FontAwesomeIcon icon={faList} className="iconC"/> Booking List
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="activePage" to="/dashboard/review">
+                                <NavLink onClick={() => setTitle('Review')} activeClassName="activePage" to="/dashboard/review">
                                     <FontAwesomeIcon icon={faCommentAlt} className="iconC"/> Review
                                 </NavLink>
                             </li>

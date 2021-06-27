@@ -2,7 +2,7 @@
     box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
     background: #fff;
     text-align: center;
-    margin: 2rem auto;
+    margin: 2.5rem auto;
     border-radius: 0.3rem;
 }
 
@@ -47,6 +47,7 @@
     border: none;
     color: #fff;
     transition: 0.4s;
+    cursor: pointer;
 }
 .mainBtn:hover {
     background-color: #4C25F5;

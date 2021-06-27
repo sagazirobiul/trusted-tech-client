@@ -2,6 +2,7 @@
     padding: 7rem 0 6rem;
     width: 100%;
     background-color: #FAF8FF;
+    font-family: 'Poppins', sans-serif;
 }
 .service {
     margin: 1.5rem 0;
@@ -69,7 +70,7 @@
 }
 .serviceName {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 1rem 0;
     margin-bottom: 0;
 }

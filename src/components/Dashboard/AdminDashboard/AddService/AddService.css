@@ -1,6 +1,42 @@
-.addProductForm{
+.addServiceForm{
     background: white;
-    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
-    padding: 1rem;
-    border-radius: 0.3rem;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 4%);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 2.5rem 0;
+}
+
+.uploadBtnWrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+  
+.uploadBtn {
+    color: #6544f8;
+    border: 1px solid #5c38ff;
+    background-color: #937bff3a;
+    padding: 8px 20px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: 0;
+    cursor: pointer!important;
+}
+
+.uploadBtn:hover {
+    background: #5c38ff;
+}
+
+.uploadBtnWrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer!important;
+}
+
+.form-label {
+    margin-bottom: .6rem!important;
 }

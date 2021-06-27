@@ -58,9 +58,9 @@ const ReviewForm = ({setIsUpdated}) => {
         reset();
     }
     return (
-        <section>
-            <div className="p-5 mx-auto mt-5 bg-white" style={{ borderRadius: "15px", maxWidth: '50rem' }}>
-                <Form onSubmit={handleSubmit(onSubmit)} className="w-100 form-main">
+        <section className='px-3'>
+            <div className="mx-auto reviewForm">
+                <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
                         <Row className="justify-content-center px-4">
                             <Form.Group as={Col} md={12}>
                                 <Form.Label style={{ fontWeight: "bold" }}>Your Name</Form.Label>
@@ -89,10 +89,10 @@ const ReviewForm = ({setIsUpdated}) => {
                                     placeholder="Description" />
                             </Form.Group>
                         </Row>
-                        <div className="text-center mt-4">
-                            <Button type="submit" className="bBranBtn" style={{ padding: ".6rem 2rem" }}>
+                        <div className="text-center mt-1">
+                            <button type="submit" className="mainBtn">
                                 submit
-                            </Button>
+                            </button>
                         </div>
                 </Form>
             </div>

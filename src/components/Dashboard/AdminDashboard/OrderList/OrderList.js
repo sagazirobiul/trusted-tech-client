@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import Order from '../Order/Order';
@@ -8,37 +9,35 @@ const OrderList = () => {
     const [isUpdated, setIsUpdated] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5050/orders')
-        .then(res => res.json())
-        .then(data => setOrders(data))
+        axios.get('http://localhost:5050/orders')
+        .then(res => setOrders(res.data))
     },[isUpdated])
 
     const handleAction = (id, status) => {
         setIsUpdated(true)
-        fetch(`http://localhost:5050/statusUpdate/${id}`, {
-            method: "PATCH",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({status: status })
-        })
-        .then(res => res.json())
-        .then(data => data && setIsUpdated(false))
+        axios.patch(`http://localhost:5050/statusUpdate/${id}`, {status: status })
+        .then(res => res.data && setIsUpdated(false))
     }
     
     return (
         <div className="px-2">
-            <Table hover className="orderList">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email ID</th>
-                        <th>Service</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                {
-                    orders.map(order => <Order order={order} handleAction={handleAction}/>)
-                }
-            </Table>
+            <div className="orderList">
+                <Table hover>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email ID</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            orders.map(order => <Order key={order._id} order={order} handleAction={handleAction}/>)
+                        }
+                    </tbody>
+                </Table>
+            </div>
         </div>
     );
 };

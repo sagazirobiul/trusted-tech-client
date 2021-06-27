@@ -33,7 +33,7 @@
 .dashBoardHeader {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 2rem 0.5rem 1rem;
+  padding: 0.6rem 2rem 0.6rem 1.3rem;
   margin-bottom: 1rem;
   background: #FFFFFF;
   align-items: center;
@@ -41,6 +41,13 @@
   box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
   transition: 0.4s;
   transform: button;
+}
+
+.dashBoardHeader h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .sideToggleBtn {
@@ -165,4 +172,5 @@
     border-radius: 1rem;
     padding: 3rem 2rem 8rem;
     margin-top: 2rem;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 4%);
 }

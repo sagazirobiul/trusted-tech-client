@@ -27,7 +27,8 @@
     line-height: 1.5;
     color: #5e5e5e;
     font-weight: 400;
-    font-family: 'Poppins', sans-serif
+    font-family: 'Poppins', sans-serif;
+    margin: 0.5rem 0;
 }
 .branBtn {
     background: #7355F7;

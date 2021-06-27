@@ -2,7 +2,7 @@
     background: #7355F7;
     background-image: url('../../../image/footerbg.png');
     width: 100%;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0!important;
 }
 .footerBox .footerLogo {
@@ -30,7 +30,7 @@
 .fAboutUs h5 {
     color: rgba(240, 255, 255, 0.925);
     padding-top: 0.5rem;
-    font-weight: 500;
+    font-weight: 400;
     display: inline-block;
     position: relative;
 }
@@ -49,15 +49,15 @@
 }
 .footerLink > .aboutUsDes {
     color: rgba(255, 255, 255, 0.6);
-    font-weight: 500;
+    font-weight: 400;
 }
 .footerLink li {
     list-style: none;
     color: rgba(255, 255, 255, 0.6);
     font-size: 1rem;
     transition: 0.4s;
-    margin: 1rem 0;
-    font-weight: 500;
+    margin: 1.1rem 0;
+    font-weight: 400;
 }
 .footerLink li:hover {
     margin-left: 0.7rem;
@@ -77,7 +77,7 @@
 
 .fAboutUs p {
     color: rgba(255, 255, 255, 0.699);
-    font-weight: 500;
+    font-weight: 400;
     margin: 1rem 0;
 
 }
@@ -117,7 +117,7 @@
 }
 .copyRight > .fHighlight {
     color: #fff;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1rem;
 }
 
@@ -143,12 +143,12 @@
 
 .fContactInfo1  p {
     color: #fff!important;
-    font-weight: 600;
-    font-size: 1.4rem!important;
+    font-weight: 500;
+    font-size: 1.5rem!important;
 }
 .fContactInfo1 .fContactIcon {
     color: #fff;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 3rem;
 }
 

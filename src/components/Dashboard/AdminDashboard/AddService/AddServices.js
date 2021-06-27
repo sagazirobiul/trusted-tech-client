@@ -1,12 +1,16 @@
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import './AddService.css'
 
 const AddService = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [imgURL, setImgURL] = useState(null)
     const [isDisabled, setIsDisabled] = useState(true)
+
     const onSubmit = data => {
         const serviceInfo = {
             name: data.name,
@@ -14,14 +18,10 @@ const AddService = () => {
             description: data.description,
             img: imgURL
         }
-        fetch('http://localhost:5050/addService',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(serviceInfo)
-        })
-        .then(res => res.json())
-        .then(result => result && reset())
+        axios.get('http://localhost:5050/addService', serviceInfo)
+        .then(res => res.data && reset())
     }
+
     const handleImgUpload = event => {
         setIsDisabled(true)
         const imgData = new FormData();
@@ -37,27 +37,47 @@ const AddService = () => {
         });
     }
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)} className="addProductForm">
-                <h5 className="dTitle mb-3">Add Services</h5>
-                <div className="row">
-                    <div className="col-md-6">
-                        <input className="form-control" {...register("name", { required: true })} placeholder="Service name"/>
-                        {errors.name && <span className="text-danger">This field is required</span>}
-                    </div>
-                    <div className="col-md-6">
-                        <input className="form-control" {...register("price", { required: true })} placeholder="price"/>
-                        {errors.price && <span className="text-danger">This field is required</span>}
-                    </div>
-                    <div className="col-md-12 mt-3">
-                        <textarea className="form-control" {...register("description", { required: true })} placeholder="description"/>
-                        {errors.description && <span className="text-danger">This field is required</span>}
-                    </div>
+        <div className="px-2">
+            <Form onSubmit={handleSubmit(onSubmit)} className="addServiceForm">
+                <Row className="justify-content-center px-4">
+                    <Form.Group as={Col} md={7}>
+                        <Form.Label style={{ fontWeight: "bold" }}>Service Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            defaultValue={ ""}
+                            {...register("name", { required: true })}
+                            placeholder="Your Name" />
+                    </Form.Group>
+                    <Form.Group as={Col} md={5}>
+                        <Form.Label style={{ fontWeight: "bold" }}>Price</Form.Label>
+                        <Form.Control
+                            type="text"
+                            defaultValue={""}
+                            {...register("price", { required: true })}
+                            placeholder="Price" />
+                    </Form.Group>
+                    <Form.Group as={Col} md={7}>
+                        <Form.Label style={{ fontWeight: "bold" }}>Description</Form.Label>
+                        <Form.Control
+                            style={{ height: "10rem" }}
+                            type="text"
+                            defaultValue={""}
+                            as="textarea"
+                            {...register("description", { required: true })}
+                            placeholder="Description" />
+                    </Form.Group>
+                    <Col md={5}>
+                        <Form.Label style={{ fontWeight: "bold", display: "block"}}>Image</Form.Label>
+                        <div class="uploadBtnWrapper">
+                            <button class="uploadBtn"> <FontAwesomeIcon icon={faCloudUploadAlt}/> Upload image</button>
+                            <input type="file" onChange={handleImgUpload}/>
+                        </div>
+                    </Col>
+                </Row>
+                <div className="text-center mt-3">
+                    <button type="submit" className="mainBtn" disabled={isDisabled}>Submit</button>
                 </div>
-                <input className="form-control mt-3" type="file" onChange={handleImgUpload} />
-                <br/>
-                <button type="submit" className="btn branBtn" disabled={isDisabled}>Submit</button>
-            </form>
+            </Form>
         </div>
     );
 };

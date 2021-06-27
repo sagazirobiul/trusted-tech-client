@@ -6,6 +6,7 @@ import Fade from 'react-reveal/Fade';
 
 const Service = ({service}) => {
     const { admin, setSelectedService } = useContext(UserContext)
+    console.log(admin);
     const {name, price, description, img} = service;
     return (
         <div className="col-md-4 service">
