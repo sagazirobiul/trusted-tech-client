@@ -90,9 +90,9 @@ const ReviewForm = ({setIsUpdated}) => {
                             </Form.Group>
                         </Row>
                         <div className="text-center mt-1">
-                            <button type="submit" className="mainBtn">
-                                submit
-                            </button>
+                            <Button type="submit" className="mainBtn">
+                                {id ? 'update': 'submit'}
+                            </Button>
                         </div>
                 </Form>
             </div>

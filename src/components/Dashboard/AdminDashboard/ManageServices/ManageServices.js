@@ -6,21 +6,23 @@ import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
+import AddService from '../AddService/AddServices';
 
 const ManageServices = () => {
     const [services, setServices] = useState([])
-    const [isDeleted, setIsDeleted] = useState(false)
+    const [isUpdated, setIsUpdated] = useState(false)
+    const [edit, setEdit] = useState(null);
 
     useEffect(() => {
         axios.get('http://localhost:5050/services')
         .then(res => {
             setServices(res.data);
-            setIsDeleted(false)
+            setIsUpdated(false)
         })
-    }, [isDeleted])
-
+    }, [isUpdated, edit])
+    // swal("Good job!", "You clicked the button!", "info");
     const handleDelete = (id) => {
-        setIsDeleted(false)
+        setIsUpdated(false)
         swal({
             title: "Are you sure?",
             text: "Are you sure! you want to delete this service?",
@@ -35,7 +37,7 @@ const ManageServices = () => {
                 .then(res => {
                     toast.dismiss(loading)
                     if(res){
-                        setIsDeleted(true);
+                        setIsUpdated(true);
                         toast.success('Service has been deleted successfully!');
                     }
                     else{
@@ -55,37 +57,43 @@ const ManageServices = () => {
     }
 
     return (
-        <div className="orderList">
-            <Table hover width="100%">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        services.map(({_id, name, price, description}) => {
-                            let des = description
-                            let shortDes = des.split(' ').slice(0,5).join(' ')
-                            return(
-                                <tr>
-                                    <td>{name}</td>
-                                    <td>{price}</td>
-                                    <td>{`${shortDes}...`}</td>
-                                    <td>
-                                        <Button variant="outline-success"> <FontAwesomeIcon icon={faEdit}/></Button>
-                                        <Button className="ml-2" variant="outline-danger" onClick={() => handleDelete(_id)}> <FontAwesomeIcon icon={faTrashAlt}/></Button>
-                                    </td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </Table>
-        </div>
+        <>
+        { edit ? 
+            <AddService edit={edit} setEdit={setEdit} services={services}/> 
+            :
+           <div className="orderList">
+                <Table hover width="100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            services.map(({_id, name, price, description}) => {
+                                let des = description
+                                let shortDes = des.split(' ').slice(0,5).join(' ')
+                                return(
+                                    <tr>
+                                        <td>{name}</td>
+                                        <td>{price}</td>
+                                        <td>{`${shortDes}...`}</td>
+                                        <td>
+                                            <Button variant="outline-success" onClick={() => setEdit(_id)}> <FontAwesomeIcon icon={faEdit}/> Edit</Button>
+                                            <Button className="ml-2" variant="outline-danger" onClick={() => handleDelete(_id)}> <FontAwesomeIcon icon={faTrashAlt}/> Delete</Button>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </Table>
+            </div>
+        }
+        </>
     );
 };
 

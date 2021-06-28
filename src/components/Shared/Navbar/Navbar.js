@@ -12,7 +12,7 @@ import PopOver from '../PopOver/PopOver';
 const NavBar = () => {
     const { user } = useContext(UserContext)
     const [isSticky, setSticky] = useState(false)
-    const email = sessionStorage.getItem('email')
+
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 50) {
@@ -22,6 +22,7 @@ const NavBar = () => {
             }
         })
     }, [])
+
     const scrollTop = () => window['scrollTo']({top: 0, behavior: 'smooth'});
     return (
         <Navbar className={`navbar navbar-expand-lg navbar-light ${isSticky ? "navStyle": "navDefault"}`} expand="lg">
@@ -50,7 +51,7 @@ const NavBar = () => {
                         </Nav.Item>
                         <Nav.Item>
                             {
-                            user.email || email ? 
+                            user.email ? 
                                 <PopOver/> :
                                 <Link to="/login">
                                     <button className="loginBtn">Login</button>

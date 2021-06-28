@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../../App';
 import userImg from '../../../../image/user.svg';
-import './Review.css';
+import './AddReview.css';
+import '../../../Home/Review/Review.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';

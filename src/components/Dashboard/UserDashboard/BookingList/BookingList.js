@@ -20,11 +20,11 @@ const BookingList = () => {
         .then(res => setBookings(res.data))
     },[user.email, isUpdated])
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, status) => {
         setIsUpdated(false)
         swal({
-            title: "Cancel Booking?",
-            text: "Are you sure! you want to cancel?",
+            title: `${status === 'Done' ? "Remove" : "Cancel"} Booking?`,
+            text: `Are you sure! you want to ${status === 'Done' ? "remove booking from your booking List" : "cancel"}?`,
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -70,7 +70,7 @@ const BookingList = () => {
                                 </div>
                                 <h6>{serviceName}</h6>
                                 <p>{description}</p>
-                                <Button variant="outline-danger" onClick={() => handleDelete(_id)}> 
+                                <Button variant="outline-danger" onClick={() => handleDelete(_id, status)}> 
                                     <FontAwesomeIcon icon={faTimesCircle}/> { status === 'Done' ? 'Remove':'Cancel'}
                                 </Button>
                             </div>

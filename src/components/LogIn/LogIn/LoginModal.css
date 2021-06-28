@@ -108,7 +108,7 @@
 
 .input-field input {
   padding-right: 0.5rem;
-  background-color: #F0F0F0;
+  background-color: #F0F0F0!important;
   border-radius: 55px;
   outline: none;
   border: none;

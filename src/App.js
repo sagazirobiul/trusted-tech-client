@@ -12,7 +12,7 @@ const LoginModal = lazy(() => import('./components/LogIn/LogIn/LoginModal'));
 
 export const UserContext = createContext();
 const App = () => {
-  const [admin, setAdmin] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState(getDecodedUser());
   const [selectedService, setSelectedService] = useState({})
 

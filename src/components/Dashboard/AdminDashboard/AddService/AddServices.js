@@ -1,25 +1,60 @@
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 import './AddService.css'
 
-const AddService = () => {
+const AddService = ({edit, setEdit, services}) => {
     const { register, handleSubmit, reset } = useForm();
-    const [imgURL, setImgURL] = useState(null)
-    const [isDisabled, setIsDisabled] = useState(false)
+    const [imgURL, setImgURL] = useState(null);
+    const [service, setService] = useState({})
+    const [isDisabled, setIsDisabled] = useState(false);
+    const {name, price, description, img} = service || {};
+
+    useEffect(() => {
+        const getService = services?.find(({_id}) => _id === edit);
+        setService(getService)
+    }, [edit, services])
 
     const onSubmit = data => {
+        const loading = toast.loading('Uploading...');
         const serviceInfo = {
             ...data,
-            img: imgURL
+            img: imgURL || img
         }
-        console.log(serviceInfo);
-        axios.get('http://localhost:5050/addService', serviceInfo)
-        .then(res => res.data && reset())
+
+        if(edit){
+            axios.patch(`http://localhost:5050/updateService/${edit}`, serviceInfo)
+            .then(res =>{
+                toast.dismiss(loading)
+                if( data.name === name  && 
+                    data.price === price &&
+                    data.description === description){
+                        toast.error("You haven't change anything")
+                    }
+                    else{
+                        toast.success('Service updated successfully')
+                    }
+                setEdit(null)
+            })
+        }else{
+            axios.post('http://localhost:5050/addService', serviceInfo)
+            .then(res => {
+                toast.dismiss(loading)
+                if(res.data){
+                    swal('Success', 'One new service added successfully', 'success')
+                    reset()
+                }
+            })
+            .catch( error => {
+                toast.dismiss(loading)
+                toast.error(error.message)
+            });
+        }
     }
 
     const handleImgUpload = event => {
@@ -48,7 +83,7 @@ const AddService = () => {
                         <Form.Label style={{ fontWeight: "bold" }}>Service Name</Form.Label>
                         <Form.Control
                             type="text"
-                            defaultValue={ ""}
+                            defaultValue={name}
                             {...register("name", { required: true })}
                             placeholder="Your Name" />
                     </Form.Group>
@@ -56,7 +91,7 @@ const AddService = () => {
                         <Form.Label style={{ fontWeight: "bold" }}>Price</Form.Label>
                         <Form.Control
                             type="text"
-                            defaultValue={""}
+                            defaultValue={price}
                             {...register("price", { required: true })}
                             placeholder="Price" />
                     </Form.Group>
@@ -65,13 +100,13 @@ const AddService = () => {
                         <Form.Control
                             style={{ height: "10rem" }}
                             type="text"
-                            defaultValue={""}
+                            defaultValue={description}
                             as="textarea"
                             {...register("description", { required: true })}
                             placeholder="Description" />
                     </Form.Group>
                     <Col md={5}>
-                        <Form.Label style={{ fontWeight: "bold", display: "block"}}>Image</Form.Label>
+                        <Form.Label style={{ fontWeight: "bold", display: "block"}}>{edit ? "Change Image": "Add Image"}</Form.Label>
                         <Button
                             as={"label"}
                             htmlFor="upload"
@@ -87,7 +122,7 @@ const AddService = () => {
                     </Col>
                 </Row>
                 <div className="text-center mt-3">
-                    <button type="submit" className="mainBtn" disabled={isDisabled}>Submit</button>
+                    <Button type="submit" className="mainBtn" disabled={isDisabled}>{edit? 'Update':'Submit'}</Button>
                 </div>
             </Form>
         </div>
