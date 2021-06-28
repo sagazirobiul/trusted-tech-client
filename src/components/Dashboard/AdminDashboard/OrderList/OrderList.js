@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import TableLoader from '../../../Shared/TableLoader/TableLoader';
 import Order from '../Order/Order';
 import './OrderList.css'
 
@@ -21,23 +22,29 @@ const OrderList = () => {
     
     return (
         <div className="px-2">
-            <div className="orderList">
-                <Table hover>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email ID</th>
-                            <th>Service</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            orders.map(order => <Order key={order._id} order={order} handleAction={handleAction}/>)
-                        }
-                    </tbody>
-                </Table>
-            </div>
+            {
+                orders.length === 0 ? 
+                <TableLoader/> 
+                : 
+                <div className="orderList">
+                    <Table hover>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email ID</th>
+                                <th>Service</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                orders.map(order => <Order key={order._id} order={order} handleAction={handleAction}/>)
+                            }
+                        </tbody>
+                    </Table>
+                </div>
+            }
+            
         </div>
     );
 };

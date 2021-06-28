@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
+import TableLoader from '../../../Shared/TableLoader/TableLoader';
 import AddService from '../AddService/AddServices';
 
 const ManageServices = () => {
@@ -60,6 +61,9 @@ const ManageServices = () => {
         <>
         { edit ? 
             <AddService edit={edit} setEdit={setEdit} services={services}/> 
+            : 
+            services.length === 0 ?
+            <TableLoader/>
             :
            <div className="orderList">
                 <Table hover width="100%">

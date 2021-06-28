@@ -9,6 +9,7 @@ import { UserContext } from '../../../../App';
 import Spinner from '../../../Shared/Spinner/Spinner';
 import './BookingList.css'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import ListLoader from '../../../Shared/ListLoader/ListLoader';
 
 const BookingList = () => {
     const { user } = useContext(UserContext);
@@ -56,7 +57,7 @@ const BookingList = () => {
     }
     return (
         <div>
-            {bookings.length === 0 && <div className="mt-5 p-5 text-center"><Spinner/></div>}
+            {bookings.length === 0 && <ListLoader/>}
             <div className="row px-3">
                 {
                     bookings.map(({_id, serviceName,status,description,img}) => {
