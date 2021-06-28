@@ -9,9 +9,8 @@ import './Dashboard.css';
 
 const Dashboard= () => {
     const { user, admin, setAdmin } = useContext(UserContext);
-    const email = sessionStorage.getItem('email')
     const [sideToggle, setSideToggle] = useState(false)
-    const [title, setTitle] = useState('Profile')
+    const [title, setTitle] = useState('Trusted Tech')
 
     useEffect(() => {
         axios.get(`http://localhost:5050/admin?email=${user.email}`)
@@ -20,7 +19,7 @@ const Dashboard= () => {
                 setAdmin(true)
             }
         })
-    },[user.email, email, admin, setAdmin])
+    },[user.email, admin, setAdmin])
 
     return (
         <div id="dashboard">

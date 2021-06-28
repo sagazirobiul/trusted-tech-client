@@ -5,14 +5,16 @@ import { faSmileBeam, faTasks, faHeadset, faUsers } from '@fortawesome/free-soli
 import CountUp from 'react-countup';
 
 const OurValue = () => {
+
     const workDetails = [
         {title: 'Happy Clients', number: 542, icon: faSmileBeam, id:1},
         {title: 'Projects', number: 623, icon: faTasks, id:2},
         {title: 'Hours of Support', number: 1634, icon: faHeadset, id:3},
         {title: 'Hard Workers', number: 31, icon: faUsers, id:4}
     ]
+    
     return (
-        <div className="ourValue">
+        <section className="ourValue">
             <div className="row container mx-auto">
                 {
                     workDetails.map(({title, number, icon, id}) => {
@@ -36,7 +38,7 @@ const OurValue = () => {
                     })
                 }
             </div>
-        </div>
+        </section>
     );
 };
 

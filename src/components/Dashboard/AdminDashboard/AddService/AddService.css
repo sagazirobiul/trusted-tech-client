@@ -5,36 +5,24 @@
     border-radius: 1rem;
     margin: 2.5rem 0;
 }
-
-.uploadBtnWrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-}
   
 .uploadBtn {
     color: #6544f8;
     border: 1px solid #5c38ff;
-    background-color: #937bff3a;
+    background-color: rgba(147, 123, 255, 0.227);
     padding: 8px 20px;
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 500;
     outline: 0;
-    cursor: pointer!important;
+    width: 250px;
+    transition: 0.4s;
 }
 
 .uploadBtn:hover {
-    background: #5c38ff;
-}
-
-.uploadBtnWrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer!important;
+    color: #6544f8;
+    border: 1px solid #5c38ff;
+    background-color: rgba(147, 123, 255, 0.384);
 }
 
 .form-label {

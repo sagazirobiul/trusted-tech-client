@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
-.sideBar{
-    transition: 0.4s;
+.sideBox{
+    height: 100%;
 }
 
-#sidebar {
+
+#sideNavbar {
     font-family: 'Poppins', sans-serif;
+    transition: 0.4s;
 }
-#sidebar ul {
+#sideNavbar ul {
    margin: 0;
    padding: 0.5rem 0 0.5rem 2rem;
    list-style: none;
 }
-#sidebar ul li a {
+#sideNavbar ul li a {
     padding: 0.6rem 0.8rem;
     display: block;
     font-size: 1.1rem;
     color: #878787;
     border-left: 3px solid transparent;
 }
-#sidebar ul li a:hover {
+#sideNavbar ul li a:hover {
     text-decoration: none;
     color: #000;
     background-color: #EFF2F7;

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Siderbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList, faUserAlt, faUserCircle} from '@fortawesome/free-solid-svg-icons'
@@ -10,12 +10,12 @@ const Sidebar = ({setTitle}) => {
     const { admin } = useContext(UserContext);
 
     return (
-        <div className="sideBar">
+        <div>
             <div className="sideBrand">
                 <div className="sideBrnIcon"><FontAwesomeIcon icon={faBuffer}/></div>
                 <h2>Trusted <span className="navHighlight">Tech</span></h2>
             </div>
-            <nav id="sidebar">
+            <nav id="sideNavbar">
                 <ul>    
                         <li>
                             <NavLink onClick={() => setTitle('Profile')} activeClassName="activePage" exact to="/dashboard/profile">

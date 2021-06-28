@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
 }
 
 .pageCloseBtn {

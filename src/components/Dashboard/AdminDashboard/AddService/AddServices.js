@@ -2,38 +2,42 @@ import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import './AddService.css'
 
 const AddService = () => {
     const { register, handleSubmit, reset } = useForm();
     const [imgURL, setImgURL] = useState(null)
-    const [isDisabled, setIsDisabled] = useState(true)
+    const [isDisabled, setIsDisabled] = useState(false)
 
     const onSubmit = data => {
         const serviceInfo = {
-            name: data.name,
-            price: data.price,
-            description: data.description,
+            ...data,
             img: imgURL
         }
+        console.log(serviceInfo);
         axios.get('http://localhost:5050/addService', serviceInfo)
         .then(res => res.data && reset())
     }
 
     const handleImgUpload = event => {
+        const loading = toast.loading('Image uploading...');
         setIsDisabled(true)
         const imgData = new FormData();
         imgData.set('key', '158d6aaa1f29311c98e50373ddc8e3d6');
         imgData.append('image', event.target.files[0])
         axios.post('https://api.imgbb.com/1/upload', imgData)
         .then( response => {
+            toast.dismiss(loading)
+            toast.success('Image successfully uploaded')
             setImgURL(response.data.data.url)
             setIsDisabled(false)
         })
         .catch( error => {
-            console.log(error);
+            toast.dismiss(loading)
+            toast.error(error.message)
         });
     }
     return (
@@ -68,10 +72,18 @@ const AddService = () => {
                     </Form.Group>
                     <Col md={5}>
                         <Form.Label style={{ fontWeight: "bold", display: "block"}}>Image</Form.Label>
-                        <div class="uploadBtnWrapper">
-                            <button class="uploadBtn"> <FontAwesomeIcon icon={faCloudUploadAlt}/> Upload image</button>
-                            <input type="file" onChange={handleImgUpload}/>
-                        </div>
+                        <Button
+                            as={"label"}
+                            htmlFor="upload"
+                            className="d-block p-2 uploadBtn">
+                            <FontAwesomeIcon icon={faCloudUploadAlt} className="mr-2" />Upload Image
+                        </Button>
+                        <Form.Control
+                            hidden="hidden"
+                            id="upload"
+                            type="file"
+                            onChange={handleImgUpload}
+                        />
                     </Col>
                 </Row>
                 <div className="text-center mt-3">
