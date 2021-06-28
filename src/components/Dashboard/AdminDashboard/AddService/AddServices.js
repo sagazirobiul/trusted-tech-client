@@ -46,7 +46,7 @@ const AddService = ({edit, setEdit, services}) => {
             .then(res => {
                 toast.dismiss(loading)
                 if(res.data){
-                    swal('Success', 'One new service added successfully', 'success')
+                    swal('Success!', 'One new service added successfully', 'success')
                     reset()
                 }
             })

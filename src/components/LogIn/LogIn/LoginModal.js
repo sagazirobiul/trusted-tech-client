@@ -28,7 +28,7 @@ const Form = () => {
       toast.success('Successfully Logged In!');
       history.replace(from);
     }
-    if (res.email === "test@t.com") {
+    if (res.email === "test@admin.com") {
       swal({
         title: "Warning!",
         text: "You have entered the admin panel for testing. Please don't abuse this facility!",

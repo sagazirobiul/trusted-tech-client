@@ -6,7 +6,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
 import { UserContext } from '../../../../App';
-import Spinner from '../../../Shared/Spinner/Spinner';
 import './BookingList.css'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import ListLoader from '../../../Shared/ListLoader/ListLoader';

@@ -1,13 +1,33 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
+import { UserContext } from '../../../../App';
 
 const MakeAdmin = () => {
+    const { user } = useContext(UserContext)
     const { register, handleSubmit, formState: { errors }, reset} = useForm();
+
     const onSubmit = data => {
-        axios.post('http://localhost:5050/addAdmin',{email: data.email})
-        .then(res => reset())
+        const loading = toast.loading('Please wait...')
+        
+        if(user.email === "test@admin.com"){
+            toast.dismiss(loading)
+            swal("Permission restricted!", "As a test admin, You haven't permission to add a new admin", "info");
+        } else {
+            axios.post('http://localhost:5050/addAdmin',{email: data.email})
+            .then(res => {
+                toast.dismiss(loading)
+                toast.success('One admin added successfully')
+                reset();
+            })
+            .catch(err => {
+                toast.dismiss(loading)
+                toast.error(err.message)
+            })
+        }
     };
     return (
         <div className="px-2">

@@ -21,7 +21,22 @@ const ManageServices = () => {
             setIsUpdated(false)
         })
     }, [isUpdated, edit])
-    // swal("Good job!", "You clicked the button!", "info");
+    
+    const checkPermission = (id, action) => {
+        const getMainServices = services.slice(0, 6)
+        const getService = getMainServices.find(({_id}) => id === _id)
+        
+        if(getService){
+            swal("Permission restricted!","As a test admin, you can't edit or delete the main six services. You can only change or delete your added services", "info" )
+        } else {
+            if(action === 'edit'){
+                setEdit(id)
+            } else {
+                handleDelete(id)
+            }
+        }
+    }
+
     const handleDelete = (id) => {
         setIsUpdated(false)
         swal({
@@ -86,8 +101,8 @@ const ManageServices = () => {
                                         <td>{price}</td>
                                         <td>{`${shortDes}...`}</td>
                                         <td>
-                                            <Button variant="outline-success" onClick={() => setEdit(_id)}> <FontAwesomeIcon icon={faEdit}/> Edit</Button>
-                                            <Button className="ml-2" variant="outline-danger" onClick={() => handleDelete(_id)}> <FontAwesomeIcon icon={faTrashAlt}/> Delete</Button>
+                                            <Button variant="outline-success" onClick={() => checkPermission(_id, 'edit')}> <FontAwesomeIcon icon={faEdit}/> Edit</Button>
+                                            <Button className="ml-2" variant="outline-danger" onClick={() => checkPermission(_id, 'delete')}> <FontAwesomeIcon icon={faTrashAlt}/> Delete</Button>
                                         </td>
                                     </tr>
                                 )
