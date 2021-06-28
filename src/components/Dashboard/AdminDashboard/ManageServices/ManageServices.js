@@ -3,13 +3,16 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
+import { UserContext } from '../../../../App';
 import TableLoader from '../../../Shared/TableLoader/TableLoader';
 import AddService from '../AddService/AddServices';
 
 const ManageServices = () => {
+    const {user : { email }} = useContext(UserContext)
     const [services, setServices] = useState([])
     const [isUpdated, setIsUpdated] = useState(false)
     const [edit, setEdit] = useState(null);
@@ -23,11 +26,12 @@ const ManageServices = () => {
     }, [isUpdated, edit])
     
     const checkPermission = (id, action) => {
+
         const getMainServices = services.slice(0, 6)
         const getService = getMainServices.find(({_id}) => id === _id)
         
-        if(getService){
-            swal("Permission restricted!","As a test admin, you can't edit or delete the main six services. You can only change or delete your added services", "info" )
+        if(getService && email === "test@admin.com"){
+            swal("Permission restriction!","As a test admin, you can't edit or delete the main six services. You can only edit or delete your added services", "info" )
         } else {
             if(action === 'edit'){
                 setEdit(id)

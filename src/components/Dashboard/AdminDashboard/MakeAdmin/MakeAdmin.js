@@ -7,15 +7,15 @@ import swal from 'sweetalert';
 import { UserContext } from '../../../../App';
 
 const MakeAdmin = () => {
-    const { user } = useContext(UserContext)
+    const { user: {email} } = useContext(UserContext)
     const { register, handleSubmit, formState: { errors }, reset} = useForm();
 
     const onSubmit = data => {
         const loading = toast.loading('Please wait...')
         
-        if(user.email === "test@admin.com"){
+        if(email === "test@admin.com"){
             toast.dismiss(loading)
-            swal("Permission restricted!", "As a test admin, You haven't permission to add a new admin", "info");
+            swal("Permission restriction!", "As a test admin, You haven't permission to add a new admin", "info");
         } else {
             axios.post('http://localhost:5050/addAdmin',{email: data.email})
             .then(res => {
