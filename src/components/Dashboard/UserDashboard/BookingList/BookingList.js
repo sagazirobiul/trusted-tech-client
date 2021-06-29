@@ -15,7 +15,7 @@ const BookingList = () => {
     const [isUpdated, setIsUpdated] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:5050/bookingList?email=${user.email}`)
+        axios.get(`https://trusted-tech.herokuapp.com/bookingList?email=${user.email}`)
         .then(res => setBookings(res.data))
     },[user.email, isUpdated])
 
@@ -31,7 +31,7 @@ const BookingList = () => {
           .then( wantDelete => {
             if (wantDelete) {
                 const loading = toast.loading('deleting...Please wait!')
-                axios.delete(`http://localhost:5050/deleteOrder/${id}`)
+                axios.delete(`https://trusted-tech.herokuapp.com/deleteOrder/${id}`)
                 .then(res => {
                     toast.dismiss(loading)
                     if(res){

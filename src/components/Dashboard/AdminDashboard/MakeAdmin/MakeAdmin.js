@@ -17,7 +17,7 @@ const MakeAdmin = () => {
             toast.dismiss(loading)
             swal("Permission restriction!", "As a test admin, You haven't permission to add a new admin", "info");
         } else {
-            axios.post('http://localhost:5050/addAdmin',{email: data.email})
+            axios.post('https://trusted-tech.herokuapp.com/addAdmin',{email: data.email})
             .then(res => {
                 toast.dismiss(loading)
                 toast.success('One admin added successfully')

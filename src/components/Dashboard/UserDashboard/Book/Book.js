@@ -14,7 +14,7 @@ const Book = () => {
     const [show, setShow] = useState(true);
 
     useEffect(() => {
-        axios.get(`http://localhost:5050/services`)
+        axios.get(`https://trusted-tech.herokuapp.com/services`)
         .then(res => {
             setServices(res.data)
             if(!selectedService.name){

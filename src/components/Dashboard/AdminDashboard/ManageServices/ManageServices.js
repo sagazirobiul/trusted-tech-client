@@ -18,7 +18,7 @@ const ManageServices = () => {
     const [edit, setEdit] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5050/services')
+        axios.get('https://trusted-tech.herokuapp.com/services')
         .then(res => {
             setServices(res.data);
             setIsUpdated(false)
@@ -53,7 +53,7 @@ const ManageServices = () => {
           .then( wantDelete => {
             if (wantDelete) {
                 const loading = toast.loading('deleting...Please wait!')
-                axios.delete(`http://localhost:5050/delete/${id}`)
+                axios.delete(`https://trusted-tech.herokuapp.com/delete/${id}`)
                 .then(res => {
                     toast.dismiss(loading)
                     if(res){

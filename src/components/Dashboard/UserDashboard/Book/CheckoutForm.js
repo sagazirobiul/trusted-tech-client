@@ -68,7 +68,7 @@ const CheckoutForm = () => {
           img: img,
           price: price
         }
-        axios.post('http://localhost:5050/addOrder', orderData)
+        axios.post('https://trusted-tech.herokuapp.com/addOrder', orderData)
         .then(res => {
             toast.dismiss(loading);
             if(res.data === true){

@@ -28,7 +28,7 @@ const AddService = ({edit, setEdit, services}) => {
         }
 
         if(edit){
-            axios.patch(`http://localhost:5050/updateService/${edit}`, serviceInfo)
+            axios.patch(`https://trusted-tech.herokuapp.com/updateService/${edit}`, serviceInfo)
             .then(res =>{
                 toast.dismiss(loading)
                 if( data.name === name  && 
@@ -42,7 +42,7 @@ const AddService = ({edit, setEdit, services}) => {
                 setEdit(null)
             })
         }else{
-            axios.post('http://localhost:5050/addService', serviceInfo)
+            axios.post('https://trusted-tech.herokuapp.com/addService', serviceInfo)
             .then(res => {
                 toast.dismiss(loading)
                 if(res.data){

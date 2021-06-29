@@ -20,7 +20,7 @@ const AddReview = () => {
     const [isUpdated, setIsUpdated] = useState(false)
     const {_id, name, address, description} = review || {};
     useEffect(() => {
-        axios(`http://localhost:5050/userReview?email=${email}`)
+        axios(`https://trusted-tech.herokuapp.com/userReview?email=${email}`)
         .then(res => {
             setReview(res.data[0]);
         })
@@ -38,7 +38,7 @@ const AddReview = () => {
           .then( wantDelete => {
             if (wantDelete) {
                 const loading = toast.loading('deleting...Please wait!')
-                axios.delete(`http://localhost:5050/deleteReview/${id}`)
+                axios.delete(`https://trusted-tech.herokuapp.com/deleteReview/${id}`)
                 .then(res => {
                     toast.dismiss(loading)
                     if(res){

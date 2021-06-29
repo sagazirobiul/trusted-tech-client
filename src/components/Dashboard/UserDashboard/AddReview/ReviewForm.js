@@ -15,7 +15,7 @@ const ReviewForm = ({setIsUpdated}) => {
     const [review, setReview] = useState({});
     const {name, address, description} = review;
     useEffect(() => {
-        axios(`http://localhost:5050/userReview/${id}`)
+        axios(`https://trusted-tech.herokuapp.com/userReview/${id}`)
         .then(res => {
             setReview(res.data[0]);
         })
@@ -28,7 +28,7 @@ const ReviewForm = ({setIsUpdated}) => {
             reviewData.email = review.email || email;
             reviewData.img = review.img || img;
         if(id){
-            axios.patch(`http://localhost:5050/updateReview/${id}`, reviewData)
+            axios.patch(`https://trusted-tech.herokuapp.com/updateReview/${id}`, reviewData)
             .then(res => {
                 if(res){
                     toast.dismiss(loading);
@@ -46,7 +46,7 @@ const ReviewForm = ({setIsUpdated}) => {
             })
         }else {
             setIsUpdated(false)
-            axios.post('http://localhost:5050/addReview', reviewData)
+            axios.post('https://trusted-tech.herokuapp.com/addReview', reviewData)
             .then(res => {
                 if(res){
                     setIsUpdated(true)
