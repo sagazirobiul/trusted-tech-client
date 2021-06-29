@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { loginWithProvider } from './LoginManager';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const SocialMedia = ({handleResponse}) => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -24,15 +25,15 @@ const SocialMedia = ({handleResponse}) => {
     }
     return (
         <div class="social-media">
-            <button onClick={() => handleSignIn(googleProvider)} className="social-icon">
+            <div onClick={() => handleSignIn(googleProvider)} className="social-icon">
                 <FontAwesomeIcon icon={faGoogle}/>
-            </button>
-            <button onClick={() => handleSignIn(fbProvider)} className="social-icon">
+            </div>
+            <div onClick={() => handleSignIn(fbProvider)} className="social-icon">
                 <FontAwesomeIcon icon={faFacebook}/>
-            </button>
-            <button onClick={() => handleSignIn(ghProvider)} className="social-icon">
+            </div>
+            <div onClick={() => handleSignIn(ghProvider)} className="social-icon">
                 <FontAwesomeIcon icon={faGithub}/>
-            </button>
+            </div>
         </div>
     );
 };
