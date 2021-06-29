@@ -18,7 +18,7 @@ const OurValue = () => {
             <div className="row container mx-auto">
                 {
                     workDetails.map(({title, number, icon, id}) => {
-                        return(<div className="col-md-3" key={id}>
+                        return(<div className="col-md-6 col-lg-3" key={id}>
                             <div className="ourValueDetails">
                                 <span className={`valueIcon valueIcon${id}`}>
                                     <FontAwesomeIcon icon={icon}/>

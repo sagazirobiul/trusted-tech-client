@@ -21,10 +21,10 @@ const Contact = () => {
                                 <h4 className="miniTitle">CONTACT US</h4>
                                 <h5 className="sectionTitle">GET IN TOUCH</h5>
                                 <Row>
-                                    <Col md={6}>
+                                    <Col md={12} lg={6}>
                                         <input placeholder="Your Name" type="text" required/>
                                     </Col>
-                                    <Col md={6}>
+                                    <Col md={12} lg={6}>
                                         <input placeholder="Your Email" type="email" required/>
                                     </Col>
                                     <Col md={12}>

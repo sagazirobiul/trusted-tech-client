@@ -18,7 +18,7 @@ const Footer = () => {
                         footerInfo.map(data => <FooterInfo data={data} key={data.id}/>)
                     }
                 </Row>
-                <Col md={3} className="fAboutUs">
+                <Col md={6} lg={3} className="fAboutUs">
                     <h5>ABOUT US</h5>
                     <span className="animate-border"></span>
                     <p className="aboutUsDes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, voluptate quod facere quas rem quaerat.</p>

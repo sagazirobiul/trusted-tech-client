@@ -9,7 +9,7 @@ const Service = ({service}) => {
     const {name, price, description, img} = service;
     
     return (
-        <div className="col-md-4 service">
+        <div className="col-md-6 col-lg-4 service">
             <Fade bottom duration={2700} distance='70px'>
                 <div className="service-card">
                     <div className="text-center">
