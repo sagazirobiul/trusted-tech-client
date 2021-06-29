@@ -21,8 +21,9 @@
     margin-bottom: 10px;
     font-size: 60px;
     font-weight: 800;
-    font-family: sans-serif;
+    font-family: sans-serif!important;
 }
+
 .headerContent {
     font-size: 18px;
     line-height: 1.5;
@@ -61,5 +62,6 @@
         margin-bottom: 10px;
         font-size: 40px;
         font-weight: 700;
+        font-family: sans-serif!important;
     }
 }
