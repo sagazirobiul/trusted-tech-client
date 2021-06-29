@@ -28,7 +28,7 @@ const Reviews = () => {
                     pagination={{ clickable: true }}
                     slidesPerView={3}
                     breakpoints={{
-                        640: {
+                        320: {
                             slidesPerView: 1,
                             spaceBetween: 3,
                         },

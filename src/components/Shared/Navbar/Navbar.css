@@ -62,3 +62,17 @@
 .loginBtn:hover { 
     background : #4B24F5
 }
+
+@media (max-width: 981px) {
+    .navDefault {
+        background: white;
+        padding: 0.8rem 0.5rem!important;
+        width: 100%;
+        z-index: 99!important;
+        transition: 0.5s!important;
+        text-align: center;
+    }
+    .navStyle{
+        text-align: center;
+    }
+}

@@ -43,3 +43,9 @@
     font-weight: 500;
     font-size: 1.2rem;
 }
+
+@media (max-width: 768px) {
+    .ourValueDetails{
+        margin-top: 1rem;
+    }
+}

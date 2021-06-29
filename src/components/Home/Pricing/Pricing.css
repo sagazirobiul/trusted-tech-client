@@ -167,3 +167,10 @@
 .pricingCard6 > li > .checkIcon {
     color: #f5c800;
 }
+
+
+@media (max-width: 768px) {
+    .pricingNav {
+        display: flex;
+    }
+}

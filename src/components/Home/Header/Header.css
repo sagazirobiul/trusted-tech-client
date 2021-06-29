@@ -50,3 +50,15 @@
 .headerHighlight {
     color: #7355F7;
 }
+
+@media (max-width: 981px) {
+    .header{
+        overflow: visible;
+        height: 100%;
+    }
+    .headerTitle{
+        margin-bottom: 10px;
+        font-size: 40px;
+        font-weight: 700;
+    }
+}

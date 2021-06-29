@@ -5,9 +5,10 @@ import PrivateRoute from './components/LogIn/PrivateRoute/PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 import { getDecodedUser } from "./components/LogIn/LogIn/LoginManager";
 import Preloader from './components/Shared/Preloader/Preloader';
+const NoMatch = lazy(() => import('./components/NoMatch'));
 const Home = lazy(() => import('./components/Home/Home/Home'));
-const Dashboard = lazy(() => import('./components/Dashboard/Dashboard/Dashboard'));
 const LoginModal = lazy(() => import('./components/LogIn/LogIn/LoginModal'));
+const Dashboard = lazy(() => import('./components/Dashboard/Dashboard/Dashboard'));
 
 
 export const UserContext = createContext();
@@ -30,6 +31,9 @@ const App = () => {
               </Route>
               <Route exact path="/">
                 <Home/>
+              </Route>
+              <Route exact path='*'>
+                <NoMatch/>
               </Route>
             </Switch>
           </Suspense>
