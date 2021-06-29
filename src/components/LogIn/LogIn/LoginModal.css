@@ -25,6 +25,18 @@
   background: #d6d6d6;;
 }
 
+.signInToast {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  z-index: 123;
+  background: #fff;
+}
+
+.signInToast .toastIcon {
+  height: 1.2rem;
+}
+
 .fContainer::before {
   content: "";
   position: absolute;

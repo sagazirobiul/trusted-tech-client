@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 
 const SignUpForm = ({handleResponse}) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    
     const onSubmit = ({email, password}) => {
         const loading = toast.loading('Please wait...');
         createAccount(email, password)

@@ -3,6 +3,7 @@
     padding: 2rem 3rem;
     margin: 2.5rem 1rem;
     border-radius: 1rem;
+    position: relative;
 }
 
 .form-select:focus,
@@ -29,4 +30,16 @@
 .activeService {
     background: #66b0ffbe;
     color: #fff;
+}
+
+.toastIcon {
+    height: 1.2rem;
+}
+
+.bookToast {
+    position: absolute;
+    right: 0;
+    top: 1.5rem;
+    z-index: 111;
+    background: #fff;
 }
