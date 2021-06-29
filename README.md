@@ -13,10 +13,9 @@
 # Key Technology
 - React 
 - React Bootstrap
-- Firebase Authentication
-- Firebase Hosting 
+- Firebase
 - Express JS
-- MongoDB Atlas
+- MongoDB
 - Bootstrap5
 
 ###  `Website Link :` [Live Site](https://trusted-tech.firebaseapp.com/)
