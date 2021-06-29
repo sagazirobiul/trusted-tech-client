@@ -17,10 +17,46 @@
   background: white;
   color: #878787;
   transition: all 0.6s cubic-bezier( 0.55, 0.055, 0.675, 0.19 ) ;
+  padding-bottom: 0.5rem;
 }
 #sidebar.active {
   margin-left: -300px;
   transform: rotateY(100deg);
+}
+
+.sidebarContent {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.backBtnBox {
+  position: absolute;
+  bottom: 0;
+  padding: 0.2rem;
+  width: 100%;
+}
+
+.backBtnBox .backBtn {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  background: #7254F6;
+  border: none;
+  font-size: 1rem;
+  transition: 0.3s;
+  padding: 0.4rem;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 0.3rem;
+}
+
+.backBtnBox .backBtn:hover{
+  background: #4C25F5;
+}
+
+.backBtnBox a:hover {
+  text-decoration: none;
 }
 
 #pageContent {

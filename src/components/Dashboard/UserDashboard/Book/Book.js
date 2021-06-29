@@ -3,7 +3,7 @@ import {UserContext} from '../../../../App'
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
-import { Form, Col, Row } from 'react-bootstrap';
+import { Form, Col, Row, Toast } from 'react-bootstrap';
 import './Book.css'
 import axios from 'axios';
 
@@ -30,6 +30,7 @@ const Book = () => {
 
     return (
         <div className="bookForm">
+            
             <Row>
                 <Col md={6} xs={12} className="my-3">
                     <Form.Label style={{ fontWeight: "bold" }}>Service</Form.Label>

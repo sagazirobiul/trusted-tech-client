@@ -4,6 +4,7 @@
     text-align: center;
     margin: 2.5rem auto;
     border-radius: 0.3rem;
+    max-width: 500px;
 }
 
 .profile h2 {

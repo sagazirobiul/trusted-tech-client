@@ -1,11 +1,15 @@
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import PopOver from '../../Shared/PopOver/PopOver';
 import AdminDashboard from '../AdminDashboard/AdminDashboard/AdminDashboard';
 import Sidebar from '../Sidebar/Sidebar';
 import UserDashboard from '../UserDashboard/UserDashboard/UserDashboard';
 import './Dashboard.css';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Dashboard= () => {
     const { user, admin, setAdmin } = useContext(UserContext);
@@ -24,7 +28,14 @@ const Dashboard= () => {
     return (
         <div id="dashboard">
             <div id="sidebar" className={ sideToggle ? "active" : "" }>
-                <Sidebar setTitle={setTitle}/>
+                <div className="sidebarContent">
+                    <Sidebar setTitle={setTitle}/>
+                    <div className="backBtnBox">
+                        <Link to="/">
+                            <button className="backBtn"> <FontAwesomeIcon icon={faSignOutAlt}/> back to home</button>
+                        </Link>
+                    </div>
+                </div>
             </div>
             <div id="pageContent">
                 <div className="dashBoardHeader">
