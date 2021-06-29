@@ -4,10 +4,11 @@
 </a>
 
 # Features 
-- Complete E-commerce web application with a dynamic service section and review section.
-- Admin can add services, update and delete services.
+- Complete web application with a dynamic service section and review section.
 - Users can order services, monitor their order list, and cancel orders.
-- Firebase Authentication & hosting, Stripe payment gateway are also included 
+- Admin can add services, update and delete services.
+- Admin can add new admins and can change the status of orderlist.
+- Firebase Authentication & hosting, Stripe payment gateway are also included. 
 
 # Key Technology
 - React 
@@ -18,7 +19,7 @@
 - MongoDB Atlas
 - Bootstrap5
 
-### [Live Site](https://trusted-tech.firebaseapp.com/)
+###  `Website Link :` [Live Site](https://trusted-tech.firebaseapp.com/)
 
 **Server Repo :** [Trusted Tech](https://github.com/sagazirobiul/trusted-tech-server) 
 
