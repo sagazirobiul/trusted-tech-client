@@ -5,11 +5,12 @@ import Service from './Service';
 
 const Services = () => {
     const [services, setServices] = useState([])
+    
     useEffect(() => {
-        // fetch('https://trusted-tech.herokuapp.com/services')
         axios('http://localhost:5050/services')
         .then(res => setServices(res.data))
     }, [])
+
     return (
         <section id="services" className="services">
             <h4 className="miniTitle text-center">SERVICES</h4>

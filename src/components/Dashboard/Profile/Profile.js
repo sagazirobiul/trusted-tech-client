@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { UserContext } from '../../../App';
 import { handleSignOut } from '../../LogIn/LogIn/LoginManager';

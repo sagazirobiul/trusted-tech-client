@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react'
-import {
-  CardElement, 
+import { 
   useStripe, 
   useElements,
   CardNumberElement,
