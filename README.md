@@ -1,23 +1,24 @@
 # Trusted Tech
-### [Live Site](https://trusted-tech.firebaseapp.com/)
+<a  href="https://trusted-tech.firebaseapp.com/">
+  <img  width="100%"  height="100%"  src="https://i.ibb.co/JkTxJdH/header.png"/>
+</a>
 
 # Features 
-- Complete E-commerce web application with a dynamic service section and review section.
-- Users can check their orders and see the status in their dashboard.
-- Admin panel is available & admin can see orders and change status.
-- Firebase Authentication & hosting, Stripe payment gateway are also included 
+- Complete web application with a dynamic service section and review section.
+- Users can order services, monitor their order list, and cancel orders.
+- Admin can add services, update and delete services.
+- Admin can add new admins and can change the status of orderlist.
+- Firebase Authentication & hosting, Stripe payment gateway are also included. 
 
 # Key Technology
 - React 
-- React Router 
-- React Hook Form
 - React Bootstrap
-- Firebase Authentication
-- Firebase Hosting 
+- Firebase
 - Express JS
-- MongoDB Atlas
-- ImgBB
+- MongoDB
 - Bootstrap5
+
+###  `Website Link :` [Live Site](https://trusted-tech.firebaseapp.com/)
 
 **Server Repo :** [Trusted Tech](https://github.com/sagazirobiul/trusted-tech-server) 
 
