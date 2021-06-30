@@ -102,8 +102,8 @@ const ManageServices = () => {
                                 return(
                                     <tr>
                                         <td>{name}</td>
-                                        <td>{price}</td>
                                         <td>{`${shortDes}...`}</td>
+                                        <td>${price}</td>
                                         <td>
                                             <Button variant="outline-success" onClick={() => checkPermission(_id, 'edit')}> <FontAwesomeIcon icon={faEdit}/> Edit</Button>
                                             <Button className="ml-2" variant="outline-danger" onClick={() => checkPermission(_id, 'delete')}> <FontAwesomeIcon icon={faTrashAlt}/> Delete</Button>
