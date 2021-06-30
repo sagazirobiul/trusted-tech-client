@@ -7,7 +7,7 @@
 - Complete web application with a dynamic service section and review section.
 - Users can order services, monitor their order list, and cancel orders.
 - Admin can add services, update and delete services.
-- Admin can add new admins and can change the status of orderlist.
+- Admin can add new admins and can change the status of the order list..
 - Firebase Authentication & hosting, Stripe payment gateway are also included. 
 
 # Key Technology
