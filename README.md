@@ -19,7 +19,7 @@
 - Bootstrap5
 
 ###  `Website Link :` [Live Site](https://trusted-tech.firebaseapp.com/)
-### Demo Video: <a href="https://www.youtube.com/watch?v=k04KpfrLtmI">Link</a>
+### `Demo Video:` <a href="https://www.youtube.com/watch?v=k04KpfrLtmI">Link</a>
 
 **Server Repo :** [Trusted Tech](https://github.com/sagazirobiul/trusted-tech-server) 
 
