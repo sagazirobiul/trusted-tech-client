@@ -10,6 +10,7 @@
     text-align: center;
     background: #fff;
     max-width: 550px;
+    min-height: 355px;
 }
 .review > img {
     height: 90px;
@@ -42,4 +43,8 @@
 }
 :root {
     --swiper-theme-color: #7053F1!important;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: -6px!important;
 }

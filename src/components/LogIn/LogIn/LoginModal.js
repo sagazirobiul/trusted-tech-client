@@ -16,7 +16,7 @@ import { handleSignOut } from './LoginManager';
 
 const Form = () => {
   const [isSignUp, setSignUp] = useState(false);
-  const { setUser } = useContext(UserContext);
+  const { setUser, setAdmin } = useContext(UserContext);
 
   const history = useHistory();
   const location = useLocation();
@@ -24,6 +24,7 @@ const Form = () => {
 
   const handleResponse = (res) => {
     setUser(res);
+    setAdmin(false);
     if(!res.error){
       toast.success('Successfully Logged In!');
       history.replace(from);

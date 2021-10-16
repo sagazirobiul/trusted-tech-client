@@ -8,7 +8,7 @@ import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 
 const Sidebar = ({setTitle}) => {
     const { admin } = useContext(UserContext);
-
+console.log(admin)
     return (
         <div>
             <div className="sideBrand">
