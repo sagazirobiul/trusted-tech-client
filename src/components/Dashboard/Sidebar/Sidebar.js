@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Siderbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList, faUserAlt, faUserCircle} from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList,
+faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import { UserContext } from '../../../App';
 import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 
 const Sidebar = ({setTitle}) => {
     const { admin } = useContext(UserContext);
-console.log(admin)
+
     return (
         <div>
             <div className="sideBrand">
