@@ -16,7 +16,7 @@
   top: 0;
   background: white;
   color: #878787;
-  transition: all 0.6s cubic-bezier( 0.55, 0.055, 0.675, 0.19 ) ;
+  transition: all 0.6s cubic-bezier(0.42, 0, 0.75, 0.96);
   padding-bottom: 0.5rem;
 }
 #sidebar.active {

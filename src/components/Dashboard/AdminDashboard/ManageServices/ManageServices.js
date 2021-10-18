@@ -31,7 +31,7 @@ const ManageServices = () => {
         const getService = getMainServices.find(({_id}) => id === _id)
         
         if(getService && email === "test@admin.com"){
-            swal("Permission restriction!","As a test admin, you can't edit or delete the main six services. You can only edit or delete your added services", "info" )
+            swal("Permission restriction!","As a test admin, you can't edit or delete the main six services. You can only edit or delete your added services.", "info" )
         } else {
             if(action === 'edit'){
                 setEdit(id)
